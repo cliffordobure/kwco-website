@@ -1,0 +1,23 @@
+services:
+  # Frontend React App
+  - type: web
+    name: kwco-website-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+
+  # Backend API
+  - type: web
+    name: kwco-website-backend
+    runtime: node
+    plan: starter
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NODE_ENV
+        value: production

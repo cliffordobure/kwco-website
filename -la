@@ -1,0 +1,5 @@
+[33m35d00ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Clean up duplicate directories - remove kwco_website folder
+[33mff2c5d2[m Merge branch 'main' of https://github.com/Clifford-obure/kwco_website
+[33m65a72c2[m changes
+[33mde8a534[m backend
+[33mb625090[m remove .env
