@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Search, Filter, Calendar, Clock, Eye, Tag } from "lucide-react";
+import { API_BASE_URL, getImageUrl } from "../config/api";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -11,8 +12,6 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalBlogs, setTotalBlogs] = useState(0);
-
-  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
 
   useEffect(() => {
     fetchCategories();
@@ -172,7 +171,7 @@ const Blog = () => {
                 {/* Blog Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={`https://kwco-website-j42s.onrender.com${blog.featuredImage}`}
+                    src={getImageUrl(blog.featuredImage)}
                     alt={blog.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { API_BASE_URL } from "../config/api";
 
 const AdminLogin = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,6 @@ const AdminLogin = ({ onLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

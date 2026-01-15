@@ -9,6 +9,7 @@ import {
   User,
   Tag,
 } from "lucide-react";
+import { API_BASE_URL, getImageUrl } from "../config/api";
 
 const AdminDashboard = () => {
   const [blogs, setBlogs] = useState([]);
@@ -26,7 +27,6 @@ const AdminDashboard = () => {
     featuredImage: null,
   });
 
-  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
   const token = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -466,7 +466,7 @@ const AdminDashboard = () => {
                             {blog.featuredImage ? (
                               <img
                                 className="h-12 w-12 rounded-lg object-cover"
-                                src={`https://kwco-website-j42s.onrender.com${blog.featuredImage}`}
+                                src={getImageUrl(blog.featuredImage)}
                                 alt={blog.title || "Blog image"}
                                 onError={(e) => {
                                   e.target.style.display = "none";

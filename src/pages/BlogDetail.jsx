@@ -11,14 +11,13 @@ import {
   Twitter,
   Linkedin,
 } from "lucide-react";
+import { API_BASE_URL, getImageUrl } from "../config/api";
 
 const BlogDetail = () => {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [relatedBlogs, setRelatedBlogs] = useState([]);
-
-  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
 
   useEffect(() => {
     fetchBlog();
@@ -42,10 +41,7 @@ const BlogDetail = () => {
 
       console.log("Blog data received:", data.blog);
       console.log("Featured image path:", data.blog.featuredImage);
-      console.log(
-        "Full image URL:",
-                          `https://kwco-website-j42s.onrender.com${data.blog.featuredImage}`
-      );
+      console.log("Full image URL:", getImageUrl(data.blog.featuredImage));
       setBlog(data.blog);
 
       // Fetch related blogs
@@ -201,7 +197,7 @@ const BlogDetail = () => {
           <div className="relative h-96 overflow-hidden bg-gray-100">
             {blog.featuredImage ? (
               <img
-                src={`https://kwco-website-j42s.onrender.com${blog.featuredImage}`}
+                src={getImageUrl(blog.featuredImage)}
                 alt={blog.title || "Blog image"}
                 className="w-full h-full object-cover"
                 style={{
@@ -211,10 +207,7 @@ const BlogDetail = () => {
                 }}
                 onError={(e) => {
                   console.error("Image failed to load:", blog.featuredImage);
-                  console.error(
-                                      "Full URL:",
-                  `https://kwco-website-j42s.onrender.com${blog.featuredImage}`
-                  );
+                  console.error("Full URL:", getImageUrl(blog.featuredImage));
                   if (e.target) {
                     e.target.style.display = "none";
                   }
@@ -379,7 +372,7 @@ const BlogDetail = () => {
                   <div className="relative h-48 overflow-hidden rounded-lg mb-4">
                     {relatedBlog.featuredImage ? (
                       <img
-                        src={`https://kwco-website-j42s.onrender.com${relatedBlog.featuredImage}`}
+                        src={getImageUrl(relatedBlog.featuredImage)}
                         alt={relatedBlog.title || "Related blog image"}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
