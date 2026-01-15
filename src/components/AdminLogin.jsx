@@ -45,13 +45,24 @@ const AdminLogin = ({ onLogin }) => {
         // Call parent callback
         onLogin(data);
       } else {
-        setError(data.message || "Login failed");
+        setError(data.message || `Login failed: ${response.status === 401 ? 'Invalid email or password. Please check your credentials.' : 'Server error'}`);
       }
     } catch (error) {
-      setError("Network error. Please try again.");
+      console.error("Login error:", error);
+      setError("Network error. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleEmailFocus = (e) => {
+    // Select all text when focused so user can easily replace it
+    e.target.select();
+  };
+
+  const handlePasswordFocus = (e) => {
+    // Select all text when focused so user can easily replace it
+    e.target.select();
   };
 
   return (
@@ -88,8 +99,11 @@ const AdminLogin = ({ onLogin }) => {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="admin@kwco.com"
+                  onFocus={handleEmailFocus}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400"
+                  placeholder="admin@kwco.legal"
+                  autoComplete="off"
+                  data-form-type="other"
                 />
               </div>
             </div>
@@ -110,8 +124,11 @@ const AdminLogin = ({ onLogin }) => {
                   required
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  onFocus={handlePasswordFocus}
+                  className="w-full pl-10 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400"
                   placeholder="Enter your password"
+                  autoComplete="off"
+                  data-form-type="other"
                 />
                 <button
                   type="button"
@@ -145,7 +162,7 @@ const AdminLogin = ({ onLogin }) => {
 
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-500">
-              Default credentials: admin@kwco.com / admin123456
+              Default credentials: admin@kwco.legal / admin1234567890
             </p>
             <p className="text-xs text-gray-400 mt-1">
               Remember to change these after first login
