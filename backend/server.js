@@ -58,7 +58,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from uploads directory
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// This must be before routes to ensure images are accessible
+const uploadsPath = path.join(__dirname, "uploads");
+app.use("/uploads", express.static(uploadsPath, {
+  setHeaders: (res, filePath) => {
+    // Set CORS headers for images
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET");
+    // Cache images for 1 year
+    res.setHeader("Cache-Control", "public, max-age=31536000");
+  }
+}));
+
+// Log uploads directory path for debugging
+console.log("Uploads directory:", uploadsPath);
 
 // Database connection
 mongoose
