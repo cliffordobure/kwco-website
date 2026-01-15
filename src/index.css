@@ -459,13 +459,88 @@ select {
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
   -ms-user-select: text !important;
+  background-color: white !important;
+  color: #111827 !important;
+  z-index: 10 !important;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  background-color: white !important;
+  color: #111827 !important;
+  z-index: 10 !important;
+}
+
+/* Admin dashboard form styling */
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  background-color: white !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  opacity: 1 !important;
+  font-size: 16px !important;
+}
+
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #9ca3af !important;
+}
+
+/* Admin dashboard specific overrides */
+.min-h-screen.bg-gray-50 {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+}
+
+.min-h-screen.bg-gray-50 h1,
+.min-h-screen.bg-gray-50 h2,
+.min-h-screen.bg-gray-50 h3,
+.min-h-screen.bg-gray-50 h4,
+.min-h-screen.bg-gray-50 label,
+.min-h-screen.bg-gray-50 p,
+.min-h-screen.bg-gray-50 span,
+.min-h-screen.bg-gray-50 td,
+.min-h-screen.bg-gray-50 th {
+  color: #111827 !important;
+}
+
+.min-h-screen.bg-gray-50 .bg-white {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+.min-h-screen.bg-gray-50 table {
+  color: #111827 !important;
+}
+
+.min-h-screen.bg-gray-50 table td,
+.min-h-screen.bg-gray-50 table th {
+  color: #111827 !important;
+}
+
+/* Ensure form text is always black and visible */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
 }
 
 /* Professional Image Optimization */

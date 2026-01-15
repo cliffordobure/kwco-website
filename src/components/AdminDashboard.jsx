@@ -13,6 +13,7 @@ import {
 const AdminDashboard = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingBlog, setEditingBlog] = useState(null);
   const [formData, setFormData] = useState({
@@ -79,6 +80,7 @@ const AdminDashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
 
     const formDataToSend = new FormData();
     Object.keys(formData).forEach((key) => {
@@ -115,9 +117,15 @@ const AdminDashboard = () => {
           featuredImage: null,
         });
         fetchBlogs();
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || "Failed to save blog"}`);
       }
     } catch (error) {
       console.error("Error saving blog:", error);
+      alert(`Error: ${error.message || "Failed to save blog"}`);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -198,11 +206,11 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-20" style={{ backgroundColor: '#f9fafb', color: '#111827' }}>
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Blog Management</h1>
+          <h1 className="text-3xl font-bold" style={{ color: '#111827' }}>Blog Management</h1>
           <button
             onClick={() => setShowCreateForm(true)}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
@@ -214,15 +222,15 @@ const AdminDashboard = () => {
 
         {/* Create/Edit Form */}
         {showCreateForm && (
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-4">
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8 relative z-10" style={{ backgroundColor: '#ffffff' }}>
+            <h2 className="text-2xl font-bold mb-6" style={{ color: '#111827' }}>
               {editingBlog ? "Edit Blog Post" : "Create New Blog Post"}
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 admin-form">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                     Title *
                   </label>
                   <input
@@ -231,12 +239,13 @@ const AdminDashboard = () => {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+                    style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '16px' }}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                     Category *
                   </label>
                   <select
@@ -244,7 +253,8 @@ const AdminDashboard = () => {
                     value={formData.category}
                     onChange={handleInputChange}
                     required
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+                    style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '16px' }}
                   >
                     <option value="Legal Updates">Legal Updates</option>
                     <option value="Case Studies">Case Studies</option>
@@ -256,7 +266,7 @@ const AdminDashboard = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                   Excerpt *
                 </label>
                 <textarea
@@ -265,12 +275,13 @@ const AdminDashboard = () => {
                   onChange={handleInputChange}
                   required
                   rows={3}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none resize-y"
+                  style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '16px' }}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                   Content *
                 </label>
                 <textarea
@@ -279,14 +290,15 @@ const AdminDashboard = () => {
                   onChange={handleInputChange}
                   required
                   rows={10}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none resize-y font-mono"
                   placeholder="You can use HTML tags for formatting..."
+                  style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '14px' }}
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                     Tags (comma-separated)
                   </label>
                   <input
@@ -295,12 +307,13 @@ const AdminDashboard = () => {
                     value={formData.tags}
                     onChange={handleInputChange}
                     placeholder="legal, advice, kenya"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+                    style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '16px' }}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                     Status *
                   </label>
                   <select
@@ -308,7 +321,8 @@ const AdminDashboard = () => {
                     value={formData.status}
                     onChange={handleInputChange}
                     required
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+                    style={{ backgroundColor: '#ffffff', color: '#000000', fontSize: '16px' }}
                   >
                     <option value="draft">Draft</option>
                     <option value="published">Published</option>
@@ -317,7 +331,7 @@ const AdminDashboard = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium mb-1" style={{ color: '#374151' }}>
                   Featured Image *
                 </label>
                 <input
@@ -338,9 +352,17 @@ const AdminDashboard = () => {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  disabled={submitting}
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
-                  {editingBlog ? "Update Blog" : "Create Blog"}
+                  {submitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      {editingBlog ? "Updating..." : "Creating..."}
+                    </>
+                  ) : (
+                    editingBlog ? "Update Blog" : "Create Blog"
+                  )}
                 </button>
                 <button
                   type="button"
