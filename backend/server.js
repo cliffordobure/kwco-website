@@ -91,6 +91,51 @@ app.get("/health", (req, res) => {
   });
 });
 
+// Test endpoint to check if uploads directory and files exist
+app.get("/api/test/uploads", async (req, res) => {
+  const fs = require("fs").promises;
+  try {
+    const uploadsPath = path.join(__dirname, "uploads");
+    const files = await fs.readdir(uploadsPath);
+    res.json({
+      uploadsPath,
+      fileCount: files.length,
+      files: files.slice(0, 10), // First 10 files
+      message: "Uploads directory accessible"
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+      uploadsPath: path.join(__dirname, "uploads"),
+      message: "Uploads directory not accessible or doesn't exist"
+    });
+  }
+});
+
+// Test endpoint to check specific file
+app.get("/api/test/file/:filename", async (req, res) => {
+  const fs = require("fs").promises;
+  try {
+    const filename = req.params.filename;
+    const filepath = path.join(__dirname, "uploads", filename);
+    const stats = await fs.stat(filepath);
+    res.json({
+      exists: true,
+      filename,
+      filepath,
+      size: stats.size,
+      created: stats.birthtime,
+      modified: stats.mtime
+    });
+  } catch (error) {
+    res.status(404).json({
+      exists: false,
+      filename: req.params.filename,
+      error: error.message
+    });
+  }
+});
+
 // Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/blogs", require("./routes/blogs"));

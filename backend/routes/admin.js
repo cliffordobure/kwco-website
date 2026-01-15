@@ -8,6 +8,7 @@ const {
   processImage,
   generateFilename,
 } = require("../middleware/upload");
+const { uploadImage, deleteImage } = require("../utils/cloudStorage");
 const Blog = require("../models/Blog");
 const User = require("../models/User");
 const router = express.Router();
@@ -39,15 +40,14 @@ router.post(
         return res.status(400).json({ message: "Featured image is required" });
       }
 
-      await ensureUploadsDir();
-
       const { title, excerpt, content, category, tags, status } = req.body;
       const filename = generateFilename(req.file.originalname);
-      const filepath = path.join(__dirname, "../uploads", filename);
 
-      // Process and save image
+      // Process image
       const processedImage = await processImage(req.file.buffer, filename);
-      await fs.writeFile(filepath, processedImage);
+      
+      // Upload to Cloudinary or save locally
+      const imageUrl = await uploadImage(processedImage, filename);
 
       // Generate slug from title
       const generateSlug = (title) => {
@@ -80,7 +80,7 @@ router.post(
         category,
         tags: tags ? tags.split(",").map((tag) => tag.trim()) : [],
         status: validStatus,
-        featuredImage: `/uploads/${filename}`,
+        featuredImage: imageUrl, // This will be Cloudinary URL or local path
         author: req.user._id,
         publishedAt: validStatus === "published" ? new Date() : null,
       });
@@ -182,26 +182,20 @@ router.put(
 
       // Handle image update
       if (req.file) {
-        await ensureUploadsDir();
-
         const filename = generateFilename(req.file.originalname);
-        const filepath = path.join(__dirname, "../uploads", filename);
 
-        // Process and save new image
+        // Process new image
         const processedImage = await processImage(req.file.buffer, filename);
-        await fs.writeFile(filepath, processedImage);
+        
+        // Upload new image
+        const newImageUrl = await uploadImage(processedImage, filename);
 
         // Delete old image if it exists
         if (blog.featuredImage) {
-          const oldImagePath = path.join(__dirname, "..", blog.featuredImage);
-          try {
-            await fs.unlink(oldImagePath);
-          } catch (error) {
-            console.log("Old image not found or already deleted");
-          }
+          await deleteImage(blog.featuredImage);
         }
 
-        blog.featuredImage = `/uploads/${filename}`;
+        blog.featuredImage = newImageUrl;
       }
 
       // Update blog fields
@@ -250,12 +244,7 @@ router.delete("/blogs/:id", auth, adminOnly, async (req, res) => {
 
     // Delete associated image
     if (blog.featuredImage) {
-      const imagePath = path.join(__dirname, "..", blog.featuredImage);
-      try {
-        await fs.unlink(imagePath);
-      } catch (error) {
-        console.log("Image not found or already deleted");
-      }
+      await deleteImage(blog.featuredImage);
     }
 
     await Blog.findByIdAndDelete(req.params.id);
