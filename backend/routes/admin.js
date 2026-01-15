@@ -57,17 +57,34 @@ router.post(
           .replace(/[^a-z0-9 -]/g, "")
           .replace(/\s+/g, "-")
           .replace(/-+/g, "-")
-          .trim("-");
+          .replace(/^-+|-+$/g, "") // Remove leading/trailing dashes
+          .trim();
       };
 
       // Ensure slug is unique by appending a number if needed
-      let slug = generateSlug(title);
-      let slugCounter = 1;
-      let finalSlug = slug;
-      while (await Blog.findOne({ slug: finalSlug })) {
-        finalSlug = `${slug}-${slugCounter}`;
-        slugCounter++;
+      let baseSlug = generateSlug(title);
+      if (!baseSlug) {
+        baseSlug = "untitled";
       }
+      
+      let slugCounter = 1;
+      let finalSlug = baseSlug;
+      
+      // Check if slug exists and increment until we find a unique one
+      let existingBlog = await Blog.findOne({ slug: finalSlug });
+      while (existingBlog) {
+        finalSlug = `${baseSlug}-${slugCounter}`;
+        existingBlog = await Blog.findOne({ slug: finalSlug });
+        slugCounter++;
+        
+        // Safety check to prevent infinite loop
+        if (slugCounter > 1000) {
+          finalSlug = `${baseSlug}-${Date.now()}`;
+          break;
+        }
+      }
+      
+      console.log(`Generated unique slug: ${finalSlug} from title: ${title}`);
 
       // Ensure status is valid
       const validStatus = status === "published" ? "published" : "draft";

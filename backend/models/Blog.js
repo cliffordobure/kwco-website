@@ -76,17 +76,52 @@ const blogSchema = new mongoose.Schema(
   }
 );
 
-// Create slug from title
-blogSchema.pre("save", function (next) {
-  if (!this.isModified("title")) return next();
+// Create slug from title (only if slug is not already explicitly set)
+blogSchema.pre("save", async function (next) {
+  // Skip if slug is already set for a new document (manually set in route handler)
+  if (this.slug && this.isNew) {
+    // Slug was manually set, don't override it
+    return next();
+  }
+  
+  // If title is not modified, skip
+  if (!this.isModified("title")) {
+    return next();
+  }
 
-  this.slug = this.title
+  // Generate base slug from title
+  let baseSlug = this.title
     .toLowerCase()
     .replace(/[^a-z0-9 -]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
-    .trim("-");
+    .replace(/^-+|-+$/g, "") // Remove leading/trailing dashes
+    .trim();
+  
+  if (!baseSlug) {
+    baseSlug = "untitled";
+  }
 
+  // Check for uniqueness and append number if needed
+  let slugCounter = 1;
+  let finalSlug = baseSlug;
+  
+  const Blog = this.constructor;
+  let existingBlog = await Blog.findOne({ slug: finalSlug, _id: { $ne: this._id } });
+  
+  while (existingBlog) {
+    finalSlug = `${baseSlug}-${slugCounter}`;
+    existingBlog = await Blog.findOne({ slug: finalSlug, _id: { $ne: this._id } });
+    slugCounter++;
+    
+    // Safety check
+    if (slugCounter > 1000) {
+      finalSlug = `${baseSlug}-${Date.now()}`;
+      break;
+    }
+  }
+
+  this.slug = finalSlug;
   next();
 });
 
