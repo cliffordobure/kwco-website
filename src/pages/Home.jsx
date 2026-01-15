@@ -270,7 +270,7 @@ const Home = () => {
     },
     {
       name: "Seif Mohammed",
-      position: "Partner",
+      position: "Credit Collector",
       expertise: ["Debt Collection", "Credit Management"],
       experience: "",
       image: Seif,
