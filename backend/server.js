@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
+    if (!origin) {
+      console.log('CORS: Allowing request with no origin');
+      return callback(null, true);
+    }
     
     // List of allowed origins
     const allowedOrigins = [
@@ -26,13 +29,17 @@ const corsOptions = {
     
     // In development, allow all origins
     if (process.env.NODE_ENV === 'development') {
+      console.log(`CORS: Development mode - allowing origin: ${origin}`);
       return callback(null, true);
     }
     
+    // Check if origin is in allowed list
     if (allowedOrigins.indexOf(origin) !== -1) {
+      console.log(`CORS: Allowing origin: ${origin}`);
       callback(null, true);
     } else {
-      console.log(`CORS blocked origin: ${origin}`);
+      console.log(`CORS: Blocked origin: ${origin}`);
+      console.log(`CORS: Allowed origins: ${allowedOrigins.join(', ')}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -61,6 +68,15 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ 
+    status: "ok", 
+    message: "Server is running",
+    timestamp: new Date().toISOString()
+  });
+});
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
