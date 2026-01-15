@@ -25,7 +25,7 @@ const AdminDashboard = () => {
     featuredImage: null,
   });
 
-  const API_BASE_URL = "https://kwco-website.onrender.com/api";
+  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
   const token = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -417,7 +417,7 @@ const AdminDashboard = () => {
                             {blog.featuredImage ? (
                               <img
                                 className="h-12 w-12 rounded-lg object-cover"
-                                src={`https://kwco-website.onrender.com${blog.featuredImage}`}
+                                src={`https://kwco-website-j42s.onrender.com${blog.featuredImage}`}
                                 alt={blog.title || "Blog image"}
                                 onError={(e) => {
                                   e.target.style.display = "none";

@@ -12,7 +12,7 @@ const Blog = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [totalBlogs, setTotalBlogs] = useState(0);
 
-  const API_BASE_URL = "https://kwco-website.onrender.com/api";
+  const API_BASE_URL = "https://kwco-website-j42s.onrender.com/api";
 
   useEffect(() => {
     fetchCategories();
@@ -161,7 +161,7 @@ const Blog = () => {
                 {/* Blog Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={`https://kwco-website.onrender.com${blog.featuredImage}`}
+                    src={`https://kwco-website-j42s.onrender.com${blog.featuredImage}`}
                     alt={blog.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
