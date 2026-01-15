@@ -49,8 +49,29 @@ router.post(
       const processedImage = await processImage(req.file.buffer, filename);
       await fs.writeFile(filepath, processedImage);
 
+      // Generate slug from title
+      const generateSlug = (title) => {
+        if (!title) return "";
+        return title
+          .toLowerCase()
+          .replace(/[^a-z0-9 -]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .trim("-");
+      };
+
+      // Ensure slug is unique by appending a number if needed
+      let slug = generateSlug(title);
+      let slugCounter = 1;
+      let finalSlug = slug;
+      while (await Blog.findOne({ slug: finalSlug })) {
+        finalSlug = `${slug}-${slugCounter}`;
+        slugCounter++;
+      }
+
       const blog = new Blog({
         title,
+        slug: finalSlug,
         excerpt,
         content,
         category,
@@ -143,6 +164,17 @@ router.put(
 
       const { title, excerpt, content, category, tags, status } = req.body;
 
+      // Generate slug from title if title is being updated
+      const generateSlug = (title) => {
+        if (!title) return "";
+        return title
+          .toLowerCase()
+          .replace(/[^a-z0-9 -]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .trim("-");
+      };
+
       // Handle image update
       if (req.file) {
         await ensureUploadsDir();
@@ -168,12 +200,25 @@ router.put(
       }
 
       // Update blog fields
+      const titleChanged = title && title !== blog.title;
       blog.title = title || blog.title;
       blog.excerpt = excerpt || blog.excerpt;
       blog.content = content || blog.content;
       blog.category = category || blog.category;
       blog.tags = tags ? tags.split(",").map((tag) => tag.trim()) : blog.tags;
       blog.status = status || blog.status;
+
+      // Regenerate slug if title changed
+      if (titleChanged) {
+        let slug = generateSlug(title);
+        let slugCounter = 1;
+        let finalSlug = slug;
+        while (await Blog.findOne({ slug: finalSlug, _id: { $ne: blog._id } })) {
+          finalSlug = `${slug}-${slugCounter}`;
+          slugCounter++;
+        }
+        blog.slug = finalSlug;
+      }
 
       if (status === "published" && blog.status !== "published") {
         blog.publishedAt = new Date();
