@@ -85,7 +85,7 @@ const Navigation = () => {
     },
     {
       label: "Samlex",
-      href: "https://lawfirm-saas-client.vercel.app/",
+      href: "https://samlex-client.vercel.app",
       isExternal: true,
     },
   ];
