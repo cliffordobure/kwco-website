@@ -40,13 +40,24 @@ const Blog = () => {
       });
 
       const response = await fetch(`${API_BASE_URL}/blogs?${params}`);
+      
+      if (!response.ok) {
+        console.error(`Failed to fetch blogs: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to fetch blogs: ${response.status}`);
+      }
+      
       const data = await response.json();
-
-      setBlogs(data.blogs);
-      setTotalPages(data.pagination.totalPages);
-      setTotalBlogs(data.pagination.totalBlogs);
+      
+      console.log(`Fetched ${data.blogs?.length || 0} published blogs (Total: ${data.pagination?.totalBlogs || 0})`);
+      
+      setBlogs(data.blogs || []);
+      setTotalPages(data.pagination?.totalPages || 1);
+      setTotalBlogs(data.pagination?.totalBlogs || 0);
     } catch (error) {
       console.error("Error fetching blogs:", error);
+      setBlogs([]);
+      setTotalPages(1);
+      setTotalBlogs(0);
     } finally {
       setLoading(false);
     }

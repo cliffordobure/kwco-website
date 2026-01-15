@@ -69,6 +69,9 @@ router.post(
         slugCounter++;
       }
 
+      // Ensure status is valid
+      const validStatus = status === "published" ? "published" : "draft";
+      
       const blog = new Blog({
         title,
         slug: finalSlug,
@@ -76,13 +79,15 @@ router.post(
         content,
         category,
         tags: tags ? tags.split(",").map((tag) => tag.trim()) : [],
-        status,
+        status: validStatus,
         featuredImage: `/uploads/${filename}`,
         author: req.user._id,
-        publishedAt: status === "published" ? new Date() : null,
+        publishedAt: validStatus === "published" ? new Date() : null,
       });
 
       await blog.save();
+      
+      console.log(`Blog created with status: ${blog.status}, publishedAt: ${blog.publishedAt}`);
 
       const populatedBlog = await blog.populate("author", "firstName lastName");
       res.status(201).json({ blog: populatedBlog });
