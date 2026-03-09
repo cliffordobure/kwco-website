@@ -17,7 +17,7 @@ const blogSchema = new mongoose.Schema(
     excerpt: {
       type: String,
       required: true,
-      maxlength: 300,
+      maxlength: 500,
     },
     content: {
       type: String,

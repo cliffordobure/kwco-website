@@ -41,6 +41,8 @@ router.post(
       }
 
       const { title, excerpt, content, category, tags, status } = req.body;
+      const EXCERPT_MAX_LENGTH = 500;
+      const trimmedExcerpt = typeof excerpt === "string" ? excerpt.trim().slice(0, EXCERPT_MAX_LENGTH) : "";
       const filename = generateFilename(req.file.originalname);
 
       // Process image
@@ -92,7 +94,7 @@ router.post(
       const blog = new Blog({
         title,
         slug: finalSlug,
-        excerpt,
+        excerpt: trimmedExcerpt,
         content,
         category,
         tags: tags ? tags.split(",").map((tag) => tag.trim()) : [],
@@ -186,6 +188,10 @@ router.put(
 
       const { title, excerpt, content, category, tags, status } = req.body;
 
+      const EXCERPT_MAX_LENGTH = 500;
+      const trimmedExcerpt =
+        typeof excerpt === "string" ? excerpt.trim().slice(0, EXCERPT_MAX_LENGTH) : undefined;
+
       // Generate slug from title if title is being updated
       const generateSlug = (title) => {
         if (!title) return "";
@@ -218,7 +224,7 @@ router.put(
       // Update blog fields
       const titleChanged = title && title !== blog.title;
       blog.title = title || blog.title;
-      blog.excerpt = excerpt || blog.excerpt;
+      blog.excerpt = trimmedExcerpt !== undefined ? trimmedExcerpt : (excerpt !== undefined ? String(excerpt).trim().slice(0, EXCERPT_MAX_LENGTH) : blog.excerpt);
       blog.content = content || blog.content;
       blog.category = category || blog.category;
       blog.tags = tags ? tags.split(",").map((tag) => tag.trim()) : blog.tags;
