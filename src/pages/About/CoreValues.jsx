@@ -1,5 +1,6 @@
 // src/pages/About/CoreValues.js
 import React, { useEffect } from "react";
+import { PageHeroGeometric } from "../../components/PageHeroGeometric";
 import {
   Shield,
   Scale,
@@ -13,7 +14,6 @@ import {
   Star,
   CheckCircle,
 } from "lucide-react";
-import law from "./../../assets/newImages/kwcoteaminoffice2.jpg";
 import Collaboration from "./../../assets/newImages/sk (2).jpg";
 
 const CoreValues = () => {
@@ -36,7 +36,7 @@ const CoreValues = () => {
 
   const values = [
     {
-      icon: <Shield className="w-12 h-12 text-blue-500" />,
+      icon: <Shield className="w-12 h-12 text-[#704037]" />,
       title: "Integrity",
       description:
         "We uphold the highest ethical standards in all our dealings, ensuring transparency and honesty in every interaction.",
@@ -46,11 +46,11 @@ const CoreValues = () => {
         "Avoiding conflicts of interest",
         "Upholding professional ethics",
       ],
-      color: "from-blue-50 to-blue-100",
-      borderColor: "border-blue-200",
+      color: "from-[#fbfaf8] to-slate-100",
+      borderColor: "border-slate-200",
     },
     {
-      icon: <Scale className="w-12 h-12 text-blue-500" />,
+      icon: <Scale className="w-12 h-12 text-[#704037]" />,
       title: "Justice",
       description:
         "We are committed to the pursuit of justice and fairness, ensuring equal access to legal representation.",
@@ -64,7 +64,7 @@ const CoreValues = () => {
       borderColor: "border-slate-200",
     },
     {
-      icon: <Award className="w-12 h-12 text-blue-500" />,
+      icon: <Award className="w-12 h-12 text-[#704037]" />,
       title: "Excellence",
       description:
         "We strive for excellence in everything we do, continuously improving our skills and services.",
@@ -74,11 +74,11 @@ const CoreValues = () => {
         "Attention to detail",
         "Exceeding expectations",
       ],
-      color: "from-blue-50 to-blue-100",
-      borderColor: "border-blue-200",
+      color: "from-[#fbfaf8] to-slate-100",
+      borderColor: "border-slate-200",
     },
     {
-      icon: <Heart className="w-12 h-12 text-blue-500" />,
+      icon: <Heart className="w-12 h-12 text-[#704037]" />,
       title: "Compassion",
       description:
         "We treat every client with empathy and understanding, recognizing the human element in legal matters.",
@@ -92,7 +92,7 @@ const CoreValues = () => {
       borderColor: "border-slate-200",
     },
     {
-      icon: <Users className="w-12 h-12 text-blue-500" />,
+      icon: <Users className="w-12 h-12 text-[#704037]" />,
       title: "Teamwork",
       description:
         "We believe in the power of collaboration, working together to achieve the best outcomes for our clients.",
@@ -102,11 +102,11 @@ const CoreValues = () => {
         "Supporting colleagues",
         "Collective problem-solving",
       ],
-      color: "from-blue-50 to-blue-100",
-      borderColor: "border-blue-200",
+      color: "from-[#fbfaf8] to-slate-100",
+      borderColor: "border-slate-200",
     },
     {
-      icon: <Lightbulb className="w-12 h-12 text-blue-500" />,
+      icon: <Lightbulb className="w-12 h-12 text-[#704037]" />,
       title: "Innovation",
       description:
         "We embrace new ideas and technologies to provide better, more efficient legal services.",
@@ -145,48 +145,28 @@ const CoreValues = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${law})`,
-            filter: "brightness(0.3) contrast(1.2)",
-          }}
-        />
-
-        {/* Enhanced Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
-
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              Our{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Core Values
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              The Principles That Guide Everything We Do • Building Trust
-              Through Consistent Values
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#values"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Discover Our Values
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
+    <div className="min-h-screen bg-[#fbfaf8]">
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            Our <span className="text-[#704037]">Core Values</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            The Principles That Guide Everything We Do • Building Trust
+            Through Consistent Values
+          </p>
+          <a
+            href="#values"
+            className="group inline-flex items-center bg-[#704037] text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Discover Our Values
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-900/10 to-slate-800/10 backdrop-blur-sm">
+      <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {valueStats.map((stat, index) => (
@@ -195,7 +175,7 @@ const CoreValues = () => {
                 className="text-center animate-on-scroll opacity-0 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                <div className="w-16 h-16 bg-[#704037]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#704037]">
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold text-slate-800 mb-2">
@@ -213,9 +193,9 @@ const CoreValues = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold text-slate-800 mb-8">
-              Values That <span className="text-blue-600">Define Us</span>
+              Values That <span className="text-[#704037]">Define Us</span>
             </h2>
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 max-w-4xl mx-auto">
+            <div className="bg-[#fbfaf8] p-8 rounded-2xl border border-slate-200 max-w-4xl mx-auto">
               <p className="text-xl text-slate-700 leading-relaxed">
                 At KWCO Advocates, our core values are more than just words –
                 they are the foundation of our practice and the principles that
@@ -236,7 +216,7 @@ const CoreValues = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold text-slate-800 mb-6">
-              Our <span className="text-blue-600">Six Core Values</span>
+              Our <span className="text-[#704037]">Six Core Values</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Each value represents a commitment to excellence and ethical
@@ -251,7 +231,7 @@ const CoreValues = () => {
                 className={`bg-gradient-to-br ${value.color} p-8 rounded-2xl shadow-xl border ${value.borderColor} hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll opacity-0 animate-fade-in-up`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mb-6">
+                <div className="w-20 h-20 bg-[#704037]/10 rounded-full flex items-center justify-center mb-6">
                   {value.icon}
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">
@@ -263,7 +243,7 @@ const CoreValues = () => {
                 <ul className="space-y-3">
                   {value.details.map((detail, idx) => (
                     <li key={idx} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-[#704037] mt-0.5 mr-3 flex-shrink-0" />
                       <span className="text-gray-700">{detail}</span>
                     </li>
                   ))}
@@ -279,7 +259,7 @@ const CoreValues = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold text-slate-800 mb-6">
-              Our Values <span className="text-blue-600">in Action</span>
+              Our Values <span className="text-[#704037]">in Action</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               See how our values translate into exceptional legal services
@@ -317,7 +297,7 @@ const CoreValues = () => {
                 </p>
                 <a
                   href="/our-people"
-                  className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center bg-[#704037] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   Meet Our Team
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -329,11 +309,11 @@ const CoreValues = () => {
       </section>
 
       {/* Values Impact Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-slate-800 text-white">
+      <section className="py-24 bg-[#704037] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold mb-8">
-              The <span className="text-blue-300">Impact</span> of Our Values
+              The <span className="text-amber-200">Impact</span> of Our Values
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
               How our core values create positive outcomes for our clients and
@@ -344,19 +324,19 @@ const CoreValues = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Target className="w-12 h-12 text-blue-300" />,
+                icon: <Target className="w-12 h-12 text-amber-200" />,
                 title: "Client Trust",
                 description:
                   "Building lasting relationships through consistent ethical behavior and transparent communication",
               },
               {
-                icon: <Star className="w-12 h-12 text-blue-300" />,
+                icon: <Star className="w-12 h-12 text-amber-200" />,
                 title: "Quality Results",
                 description:
                   "Delivering exceptional outcomes through excellence in every aspect of our practice",
               },
               {
-                icon: <TrendingUp className="w-12 h-12 text-blue-300" />,
+                icon: <TrendingUp className="w-12 h-12 text-amber-200" />,
                 title: "Community Impact",
                 description:
                   "Contributing to a better legal system and society through our values-driven approach",
@@ -367,7 +347,7 @@ const CoreValues = () => {
                 className="text-center animate-on-scroll opacity-0 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-blue-500/30">
+                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/30">
                   {impact.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-white">
@@ -387,7 +367,7 @@ const CoreValues = () => {
         <div className="max-w-4xl mx-auto text-center px-4">
           <div className="animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-4xl font-bold mb-6 text-slate-800">
-              Experience Our <span className="text-blue-600">Values</span> in
+              Experience Our <span className="text-amber-200">Values</span> in
               Action
             </h2>
             <p className="text-xl mb-8 text-gray-600 leading-relaxed">
@@ -397,7 +377,7 @@ const CoreValues = () => {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg text-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-xl"
+              className="inline-flex items-center bg-white text-[#704037] px-10 py-4 rounded-lg text-xl font-semibold hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
               Get Started Today
               <ArrowRight className="w-6 h-6 ml-3" />
