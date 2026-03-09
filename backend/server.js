@@ -25,7 +25,14 @@ const corsOptions = {
       'http://localhost:3000',
       'http://localhost:5174',
       'https://kwco-website.vercel.app',
+      'https://kwco-website-kwnp.vercel.app',
     ];
+    
+    // Allow any Vercel preview deployment (*.vercel.app)
+    if (origin.endsWith('.vercel.app')) {
+      console.log(`CORS: Allowing Vercel origin: ${origin}`);
+      return callback(null, true);
+    }
     
     // In development, allow all origins
     if (process.env.NODE_ENV === 'development') {
