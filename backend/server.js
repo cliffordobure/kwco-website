@@ -8,48 +8,9 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS Configuration
+// CORS Configuration - allow all origins so any frontend (Vercel preview, production) can call the API
 const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) {
-      console.log('CORS: Allowing request with no origin');
-      return callback(null, true);
-    }
-    
-    // List of allowed origins
-    const allowedOrigins = [
-      'https://kwco.legal',
-      'https://www.kwco.legal',
-      'http://localhost:5173',
-      'http://localhost:3000',
-      'http://localhost:5174',
-      'https://kwco-website.vercel.app',
-      'https://kwco-website-kwnp.vercel.app',
-    ];
-    
-    // Allow any Vercel preview deployment (*.vercel.app)
-    if (origin.endsWith('.vercel.app')) {
-      console.log(`CORS: Allowing Vercel origin: ${origin}`);
-      return callback(null, true);
-    }
-    
-    // In development, allow all origins
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`CORS: Development mode - allowing origin: ${origin}`);
-      return callback(null, true);
-    }
-    
-    // Check if origin is in allowed list
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      console.log(`CORS: Allowing origin: ${origin}`);
-      callback(null, true);
-    } else {
-      console.log(`CORS: Blocked origin: ${origin}`);
-      console.log(`CORS: Allowed origins: ${allowedOrigins.join(', ')}`);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: true, // allow any origin; set to a function with a strict list if you need to restrict later
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],

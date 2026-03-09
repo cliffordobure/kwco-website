@@ -9,13 +9,13 @@ services:
       - key: NODE_VERSION
         value: 22.16.0
 
-  # Backend API
+  # Backend API (rootDir is backend, so commands run from backend/ already)
   - type: web
     name: kwco-website-backend
     runtime: node
     plan: starter
-    buildCommand: cd backend && npm install --production
-    startCommand: cd backend && npm start
+    buildCommand: npm install --production
+    startCommand: npm start
     rootDir: backend
     envVars:
       - key: NODE_VERSION
