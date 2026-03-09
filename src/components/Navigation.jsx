@@ -1,5 +1,5 @@
 // src/components/Navigation.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Scale, ArrowRight } from "lucide-react";
 import logo from "./../assets/sklogo.jpg";
@@ -8,6 +8,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const closeTimeoutRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -133,20 +134,32 @@ const Navigation = () => {
               <div key={index} className="relative group">
                 {item.dropdown ? (
                   <div
-                    className="flex items-center cursor-pointer py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 relative"
-                    onMouseEnter={() => setActiveDropdown(index)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="flex flex-col py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 relative"
+                    onMouseEnter={() => {
+                      if (closeTimeoutRef.current) {
+                        clearTimeout(closeTimeoutRef.current);
+                        closeTimeoutRef.current = null;
+                      }
+                      setActiveDropdown(index);
+                    }}
+                    onMouseLeave={() => {
+                      closeTimeoutRef.current = setTimeout(() => {
+                        setActiveDropdown(null);
+                        closeTimeoutRef.current = null;
+                      }, 180);
+                    }}
                   >
                     {item.isScrollable && isHomePage ? (
                       <button
+                        type="button"
                         onClick={(e) => handleNavClick(e, item)}
-                        className="flex items-center font-medium hover:text-[#704037] transition-all duration-300 uppercase text-xs tracking-widest"
+                        className="flex items-center cursor-pointer font-medium hover:text-[#704037] transition-all duration-300 uppercase text-xs tracking-widest text-left w-full"
                       >
                         <span className="relative">
                           {item.label}
                           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                         </span>
-                        <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                        <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180 shrink-0" />
                       </button>
                     ) : (
                       <Link
@@ -160,8 +173,13 @@ const Navigation = () => {
                         <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
                       </Link>
                     )}
+                    {/* In-flow spacer extends this div's hover area over the dropdown so it doesn't close when moving to links */}
                     {activeDropdown === index && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white/98 backdrop-blur-md shadow-xl border border-slate-200 overflow-hidden animate-fade-in-up">
+                      <div className="h-0 min-w-[16rem] pb-[280px] -mb-[280px] select-none" aria-hidden="true" />
+                    )}
+                    {activeDropdown === index && (
+                      <div className="absolute top-full left-0 pt-1 w-64">
+                        <div className="w-64 bg-white/98 backdrop-blur-md shadow-xl border border-slate-200 overflow-hidden animate-fade-in-up">
                         <div className="p-2">
                           {item.dropdown.map((dropItem, dropIndex) =>
                             dropItem.isScrollable && isHomePage ? (
@@ -192,6 +210,7 @@ const Navigation = () => {
                               </Link>
                             )
                           )}
+                        </div>
                         </div>
                       </div>
                     )}
