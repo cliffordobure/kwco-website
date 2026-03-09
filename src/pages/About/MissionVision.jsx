@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 // src/pages/About/MissionVision.js
 import React, { useState, useEffect } from "react";
+import { PageHeroGeometric } from "../../components/PageHeroGeometric";
 import {
   Target,
   Eye,
@@ -12,7 +13,6 @@ import {
   TrendingUp,
   Shield,
 } from "lucide-react";
-import law from "./../../assets/newImages/slidder9.jpg";
 
 const MissionVision = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -76,42 +76,25 @@ const MissionVision = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={law}
-            alt="Mission Vision Background"
-            className="w-full h-full object-contain object-center"
-          />
+    <div className="min-h-screen bg-[#fbfaf8]">
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            Mission & <span className="text-[#704037]">Vision</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Our Purpose and the Future We're Building • Guiding Principles
+            That Drive Our Success
+          </p>
+          <a
+            href="#mission"
+            className="group inline-flex items-center bg-[#704037] text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Discover Our Purpose
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
-
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              Mission &{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Vision
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Our Purpose and the Future We're Building • Guiding Principles
-              That Drive Our Success
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#mission"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Discover Our Purpose
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Enhanced Mission Section */}
       <section id="mission" className="py-24 bg-white">

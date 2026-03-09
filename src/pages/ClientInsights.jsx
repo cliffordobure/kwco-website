@@ -1,5 +1,6 @@
 // src/pages/ClientInsights.js
 import React, { useState, useEffect } from "react";
+import { PageHeroGeometric } from "../components/PageHeroGeometric";
 import {
   Calendar,
   Clock,
@@ -11,7 +12,6 @@ import {
   Users,
   Award,
 } from "lucide-react";
-import law from "./../assets/newImages/ourclients.png";
 import postbank from "./../assets/client/posta.jpeg";
 import hash from "./../assets/headers/hashi.png";
 import alphajiri from "./../assets/client/alphajiri.png";
@@ -100,40 +100,21 @@ const ClientInsights = () => {
 
   return (
     <div className="min-h-screen bg-[#fbfaf8] text-slate-800">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#704037]/10 via-[#fbfaf8] to-[#704037]/5"></div>
-        </div>
-
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src={law}
-            alt="Client Insights Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fbfaf8]/80 via-[#fbfaf8]/60 to-[#fbfaf8]/80"></div>
-        </div>
-
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <div className="mb-8 animate-bounce-slow">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-[#704037] rounded-full shadow-xl">
-                <Building2 className="w-10 h-10 text-white" />
-              </div>
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <div className="mb-8 animate-bounce-slow">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#704037] rounded-full shadow-xl">
+              <Building2 className="w-10 h-10 text-white" />
             </div>
-
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 text-slate-800 leading-tight">
-              <span className="text-[#704037]">
-                Our Clients
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-12 text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Our Trusted Clients in Business & Legal Practice
-            </p>
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-slate-800 leading-tight">
+            <span className="text-[#704037]">Our Clients</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Our Trusted Clients in Business & Legal Practice
+          </p>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Introduction Section */}
       <section className="py-24 bg-white border-y border-slate-200">

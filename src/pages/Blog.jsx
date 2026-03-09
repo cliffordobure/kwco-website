@@ -91,7 +91,7 @@ const Blog = () => {
       <div className="min-h-screen bg-gray-50 pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2563eb] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading blogs...</p>
           </div>
         </div>
@@ -101,13 +101,13 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
+      {/* Hero Section - logo blue */}
+      <div className="bg-[#2563eb] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Legal Insights & Updates
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
             Stay informed with the latest legal developments, case studies, and
             expert advice from our experienced legal team.
           </p>
@@ -127,7 +127,7 @@ const Blog = () => {
                   placeholder="Search blogs..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
                 />
               </div>
             </form>
@@ -138,7 +138,7 @@ const Blog = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
               >
                 <option value="all">All Categories</option>
                 {categories.map((category) => (
@@ -199,7 +199,7 @@ const Blog = () => {
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         blog.category === "Legal Updates"
-                          ? "bg-blue-100 text-blue-800"
+                          ? "bg-[#2563eb]/10 text-[#2563eb]"
                           : blog.category === "Case Studies"
                           ? "bg-green-100 text-green-800"
                           : blog.category === "Legal Advice"
@@ -219,7 +219,7 @@ const Blog = () => {
                   <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
                     <Link
                       to={`/blog/${blog.slug}`}
-                      className="hover:text-blue-600 transition-colors"
+                      className="hover:text-[#2563eb] transition-colors"
                     >
                       {blog.title}
                     </Link>
@@ -266,7 +266,7 @@ const Blog = () => {
                   <div className="mt-4">
                     <Link
                       to={`/blog/${blog.slug}`}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+                      className="inline-flex items-center text-[#2563eb] hover:text-[#1d4ed8] font-semibold transition-colors"
                     >
                       Read More
                       <svg
@@ -333,7 +333,7 @@ const Blog = () => {
                 onClick={() => handlePageChange(page)}
                 className={`px-4 py-2 rounded-lg ${
                   currentPage === page
-                    ? "bg-blue-600 text-white"
+                    ? "bg-[#2563eb] text-white"
                     : "border border-gray-300 hover:bg-gray-50"
                 }`}
               >

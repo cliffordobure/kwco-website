@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 // src/pages/About/OurStory.js
 import React, { useState, useEffect } from "react";
+import { PageHeroGeometric } from "../../components/PageHeroGeometric";
 import {
   Calendar,
   ArrowRight,
@@ -11,7 +12,6 @@ import {
   Building2,
   Star,
 } from "lucide-react";
-import law from "./../../assets/newImages/slidder6.jpg";
 
 const OurStory = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -109,41 +109,24 @@ const OurStory = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={law}
-            alt="Our Story Background"
-            className="w-full h-full object-contain object-center"
-          />
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            Our <span className="text-[#704037]">Story</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            A Legacy of Legal Excellence • Building Trust Since 2015 •
+            Delivering Justice with Integrity
+          </p>
+          <a
+            href="#story"
+            className="group inline-flex items-center bg-[#704037] text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Discover Our Journey
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
-
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              Our{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Story
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              A Legacy of Legal Excellence • Building Trust Since 2015 •
-              Delivering Justice with Integrity
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#story"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Discover Our Journey
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Stats Section */}
       <section className="py-16 bg-gradient-to-r from-blue-900/10 to-slate-800/10 backdrop-blur-sm">

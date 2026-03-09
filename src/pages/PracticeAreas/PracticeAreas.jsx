@@ -2,6 +2,7 @@
 // src/pages/PracticeAreas/PracticeAreas.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { PageHeroGeometric } from "../../components/PageHeroGeometric";
 import {
   Scale,
   Briefcase,
@@ -148,51 +149,33 @@ const PracticeAreas = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src="src/assets/newImages/slidder1.jpg"
-            alt="Practice Areas Background"
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-
-        {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Our Practice Areas
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive Legal Services Tailored to Your Needs
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link
-                to="/contact"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-10 py-5 rounded-xl text-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl flex items-center"
-              >
-                Get Legal Consultation
-                <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="#practice-areas"
-                className="group border-2 border-white/30 text-white px-10 py-5 rounded-xl text-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm flex items-center"
-              >
-                Explore Services
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+    <div className="min-h-screen bg-[#fbfaf8]">
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-slate-800 leading-tight">
+            <span className="text-[#704037]">Our Practice Areas</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Comprehensive Legal Services Tailored to Your Needs
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center bg-[#704037] text-white font-semibold px-10 py-5 rounded-xl text-xl hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-xl"
+            >
+              Get Legal Consultation
+              <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="#practice-areas"
+              className="group inline-flex items-center border-2 border-[#704037] text-[#704037] px-10 py-5 rounded-xl text-xl hover:bg-[#704037] hover:text-white transition-all duration-300"
+            >
+              Explore Services
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Introduction Section */}
       <section className="py-24 bg-white">

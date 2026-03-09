@@ -1,5 +1,6 @@
 // src/pages/Contact.js
 import React, { useEffect } from "react";
+import { PageHeroGeometric } from "../components/PageHeroGeometric";
 import {
   Phone,
   Mail,
@@ -16,7 +17,6 @@ import {
   Shield,
   MessageSquare,
 } from "lucide-react";
-import contactBg from "./../assets/newImages/contactus.png";
 
 const Contact = () => {
   // Intersection Observer for animations
@@ -108,52 +108,35 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={contactBg}
-            alt="Contact Background"
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <MessageSquare className="w-12 h-12 text-blue-400" />
-            </div>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Contact
-              </span>{" "}
-              Us
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Connect with Our Legal Experts • Professional Consultation •
-              Strategic Legal Solutions
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#contact-form"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Send Message
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+    <div className="min-h-screen bg-[#fbfaf8]">
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <div className="w-20 h-20 bg-[#704037] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+            <MessageSquare className="w-12 h-12 text-white" />
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            <span className="text-[#704037]">Contact</span> Us
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Connect with Our Legal Experts • Professional Consultation •
+            Strategic Legal Solutions
+          </p>
+          <a
+            href="#contact-form"
+            className="group inline-flex items-center bg-[#704037] text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Send Message
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Enhanced Contact Information */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold text-slate-800 mb-6">
-              Get in <span className="text-blue-600">Touch</span>
+              Get in <span className="text-[#704037]">Touch</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Multiple ways to reach our expert legal team

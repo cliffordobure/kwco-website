@@ -1,6 +1,6 @@
 // src/pages/OurPeople.js
 import React, { useEffect } from "react";
-import teamicon from "./../assets/newImages/slidder3.jpg";
+import { PageHeroGeometric } from "../components/PageHeroGeometric";
 import {
   Mail,
   Phone,
@@ -147,46 +147,31 @@ const OurPeople = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={teamicon}
-            alt="Our People Background"
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <Users className="w-12 h-12 text-blue-400" />
-            </div>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Our People
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Meet the Distinguished Professionals Behind Our Excellence
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#team"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center"
-              >
-                Meet Our Team
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+    <div className="min-h-screen bg-[#fbfaf8]">
+      {/* Hero with geometric background */}
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <div className="w-20 h-20 bg-[#704037] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+            <Users className="w-12 h-12 text-white" />
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            <span className="text-[#704037]">Our People</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Meet the Distinguished Professionals Behind Our Excellence
+          </p>
+          <a
+            href="#team"
+            className="group inline-flex items-center bg-[#704037] text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Meet Our Team
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-900/10 to-slate-800/10 backdrop-blur-sm">
+      <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {teamStats.map((stat, index) => (
@@ -195,7 +180,7 @@ const OurPeople = () => {
                 className="text-center animate-on-scroll opacity-0 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                <div className="w-16 h-16 bg-[#704037]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#704037]">
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold text-slate-800 mb-2">
@@ -213,9 +198,9 @@ const OurPeople = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold text-slate-800 mb-8">
-              Our <span className="text-blue-600">Expert Team</span>
+              Our <span className="text-[#704037]">Expert Team</span>
             </h2>
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 max-w-4xl mx-auto">
+            <div className="bg-[#fbfaf8] p-8 rounded-2xl border border-slate-200 max-w-4xl mx-auto">
               <p className="text-xl text-slate-700 leading-relaxed">
                 KWCO Advocates is powered by a team of seasoned professionals
                 whose collective expertise spans diverse areas, including

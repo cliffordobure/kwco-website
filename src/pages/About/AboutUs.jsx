@@ -1,6 +1,7 @@
 // src/pages/About/AboutUs.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { PageHeroGeometric } from "../../components/PageHeroGeometric";
 import {
   ArrowRight,
   Users,
@@ -17,7 +18,6 @@ import {
   Eye,
   Heart,
 } from "lucide-react";
-import law from "./../../assets/newImages/slidder6.jpg";
 
 const AboutUs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -130,59 +130,38 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={law}
-            alt="About KWCO Advocates Background"
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-
-        {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            {/* Animated Badge */}
-            <div className="mb-8 animate-bounce-slow">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-2xl shadow-blue-500/50">
-                <Building2 className="w-10 h-10 text-white" />
-              </div>
-            </div>
-
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                About KWCO Advocates
-              </span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Kamuti Waweru & Co. Advocates - Your Trusted Legal Partner in
-              Kenya
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link
-                to="/contact"
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-10 py-5 rounded-xl text-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl flex items-center"
-              >
-                Get Legal Consultation
-                <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="#about-content"
-                className="group border-2 border-white/30 text-white px-10 py-5 rounded-xl text-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm flex items-center"
-              >
-                Learn More About Us
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-              </Link>
+    <div className="min-h-screen bg-[#fbfaf8]">
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <div className="mb-8 animate-bounce-slow">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#704037] rounded-full shadow-xl">
+              <Building2 className="w-10 h-10 text-white" />
             </div>
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-slate-800 leading-tight">
+            <span className="text-[#704037]">About KWCO Advocates</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Kamuti Waweru & Co. Advocates - Your Trusted Legal Partner in Kenya
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center bg-[#704037] text-white font-semibold px-10 py-5 rounded-xl text-xl hover:bg-[#5a332b] transition-all duration-300 transform hover:scale-105 shadow-xl"
+            >
+              Get Legal Consultation
+              <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="#about-content"
+              className="group inline-flex items-center border-2 border-[#704037] text-[#704037] px-10 py-5 rounded-xl text-xl hover:bg-[#704037] hover:text-white transition-all duration-300"
+            >
+              Learn More About Us
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Enhanced Introduction Section */}
       <section id="about-content" className="py-24 bg-white">

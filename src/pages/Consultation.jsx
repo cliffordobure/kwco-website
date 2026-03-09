@@ -1,5 +1,6 @@
 // src/pages/Consultation.jsx
 import React, { useState, useEffect } from "react";
+import { PageHeroGeometric } from "../components/PageHeroGeometric";
 import {
   User,
   Mail,
@@ -17,7 +18,6 @@ import {
   MessageSquare,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import contactBg from "./../assets/newImages/contactus.png";
 
 const Consultation = () => {
   const [formData, setFormData] = useState({
@@ -208,42 +208,26 @@ This consultation request was submitted through the KWCO website.
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <img
-            src={contactBg}
-            alt="Consultation Background"
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="animate-fade-in-up">
-            <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <MessageSquare className="w-12 h-12 text-blue-400" />
-            </div>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Legal
-              </span>{" "}
-              Consultation
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Professional Legal Advice • Expert Consultation • Strategic
-              Solutions
-            </p>
+      <PageHeroGeometric>
+        <div className="animate-fade-in-up">
+          <div className="w-20 h-20 bg-[#704037] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+            <MessageSquare className="w-12 h-12 text-white" />
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-slate-800 leading-tight">
+            <span className="text-[#704037]">Legal</span> Consultation
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Professional Legal Advice • Expert Consultation • Strategic Solutions
+          </p>
         </div>
-      </section>
+      </PageHeroGeometric>
 
       {/* Consultation Form */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-slate-800 mb-6">
-              Request Your <span className="text-blue-600">Consultation</span>
+              Request Your <span className="text-[#704037]">Consultation</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Fill out the form below to schedule your legal consultation. Our

@@ -129,7 +129,7 @@ const BlogDetail = () => {
       <div className="min-h-screen bg-gray-50 pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2563eb] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading blog post...</p>
           </div>
         </div>
@@ -166,7 +166,7 @@ const BlogDetail = () => {
             </p>
             <Link
               to="/blog"
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
+              className="inline-flex items-center text-[#2563eb] hover:text-[#1d4ed8] font-semibold"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
@@ -183,7 +183,7 @@ const BlogDetail = () => {
       <div className="container mx-auto px-4 py-4">
         <Link
           to="/blog"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+          className="inline-flex items-center text-[#2563eb] hover:text-[#1d4ed8] font-semibold transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Blog
@@ -248,7 +248,7 @@ const BlogDetail = () => {
               <span
                 className={`px-3 py-1 rounded-full text-sm font-semibold ${
                   (blog.category || "Uncategorized") === "Legal Updates"
-                    ? "bg-blue-100 text-blue-800"
+                    ? "bg-[#2563eb]/10 text-[#2563eb]"
                     : (blog.category || "Uncategorized") === "Case Studies"
                     ? "bg-green-100 text-green-800"
                     : (blog.category || "Uncategorized") === "Legal Advice"
@@ -302,21 +302,21 @@ const BlogDetail = () => {
                 <span className="text-sm text-gray-500 mr-2">Share:</span>
                 <button
                   onClick={() => shareOnSocial("facebook")}
-                  className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
+                  className="p-2 text-[#2563eb] hover:bg-[#2563eb]/10 rounded-full transition-colors"
                   title="Share on Facebook"
                 >
                   <Facebook className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => shareOnSocial("twitter")}
-                  className="p-2 text-blue-400 hover:bg-blue-50 rounded-full transition-colors"
+                  className="p-2 text-[#2563eb] hover:bg-[#2563eb]/10 rounded-full transition-colors"
                   title="Share on Twitter"
                 >
                   <Twitter className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => shareOnSocial("linkedin")}
-                  className="p-2 text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
+                  className="p-2 text-[#1d4ed8] hover:bg-[#2563eb]/10 rounded-full transition-colors"
                   title="Share on LinkedIn"
                 >
                   <Linkedin className="h-4 w-4" />
@@ -345,7 +345,7 @@ const BlogDetail = () => {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           {blog.content ? (
             <div
-              className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+              className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-[#2563eb] prose-a:no-underline hover:prose-a:underline"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
@@ -387,7 +387,7 @@ const BlogDetail = () => {
                       </div>
                     )}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#2563eb] transition-colors">
                     <Link to={`/blog/${relatedBlog.slug || relatedBlog._id}`}>
                       {relatedBlog.title || "Untitled"}
                     </Link>
