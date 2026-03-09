@@ -27,11 +27,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-// Import banner images
-import sliderOne from "./../assets/hero-sliders/pngwing.com (7).png";
-import sliderTwo from "./../assets/hero-sliders/pngwing.com (8).png";
-import sliderThree from "./../assets/hero-sliders/pngwing.com (9).png";
-import sliderFour from "./../assets/hero-sliders/pngwing.com (10).png";
+import { HeroGeometricSlide, getGeometricSlideCount } from "../components/HeroGeometricSlides";
 
 import bank from "./../assets/client/kingdom bank.png";
 import Melvin from "./../assets/team/Melvin.jpg";
@@ -46,17 +42,16 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Array of your banner images
-  const bannerImages = [sliderOne, sliderTwo, sliderThree, sliderFour];
+  const slideCount = getGeometricSlideCount();
 
   // Auto-slide functionality
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-    }, 6000); // Change slide every 6 seconds
+      setCurrentSlide((prev) => (prev + 1) % slideCount);
+    }, 6000);
 
     return () => clearInterval(slideInterval);
-  }, [bannerImages.length]);
+  }, [slideCount]);
 
   // Mouse movement for parallax effect
   useEffect(() => {
@@ -93,13 +88,11 @@ const Home = () => {
   };
 
   const goToPrevious = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + bannerImages.length) % bannerImages.length
-    );
+    setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
   };
 
   const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
+    setCurrentSlide((prev) => (prev + 1) % slideCount);
   };
 
   const practiceAreas = [
@@ -292,9 +285,9 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/85 via-slate-900/65 to-slate-950/85"></div>
         </div>
 
-        {/* Image Slider Background with Parallax */}
+        {/* Geometric Slider Background with Parallax */}
         <div className="absolute inset-0 w-full h-full">
-          {bannerImages.map((image, index) => (
+          {Array.from({ length: slideCount }, (_, index) => (
             <div
               key={index}
               className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
@@ -307,13 +300,9 @@ const Home = () => {
               }}
             >
               <div className="w-full h-full relative overflow-hidden">
-                <img
-                  src={image}
-                  alt={`Law office banner ${index + 1}`}
-                  className="absolute inset-0 w-full h-full hero-image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 via-transparent to-slate-900/40"></div>
+                <HeroGeometricSlide index={index} />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-transparent to-slate-900/40" />
               </div>
             </div>
           ))}
@@ -362,7 +351,7 @@ const Home = () => {
 
         {/* Enhanced Slide Indicators with Progress */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
-          {bannerImages.map((_, index) => (
+          {Array.from({ length: slideCount }, (_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
