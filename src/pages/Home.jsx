@@ -274,15 +274,15 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-gray-100 corporate-font">
-      {/* Corporate Hero Section - Bowmans Style */}
+    <div className="min-h-screen bg-[#fbfaf8] text-slate-800 corporate-font">
+      {/* Hero Section - light theme */}
       <section
         id="home"
-        className="relative min-h-[38vh] flex items-center justify-center overflow-hidden bg-slate-950"
+        className="relative min-h-[38vh] flex items-center justify-center overflow-hidden bg-[#fbfaf8]"
       >
-        {/* Dark Professional Overlay */}
+        {/* Light overlay for depth */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/85 via-slate-900/65 to-slate-950/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-[#704037]/5"></div>
         </div>
 
         {/* Geometric Slider Background with Parallax */}
@@ -301,17 +301,16 @@ const Home = () => {
             >
               <div className="w-full h-full relative overflow-hidden">
                 <HeroGeometricSlide index={index} />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50" />
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-transparent to-slate-900/40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-white/30" />
               </div>
             </div>
           ))}
         </div>
 
-        {/* Enhanced Navigation Arrows with Hover Effects */}
+        {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-110 hover:shadow-2xl group"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-[#704037] p-4 rounded-full hover:bg-[#704037] hover:text-white transition-all duration-300 border border-slate-200 hover:scale-110 shadow-lg group"
           aria-label="Previous slide"
         >
           <svg
@@ -331,7 +330,7 @@ const Home = () => {
 
         <button
           onClick={goToNext}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-110 hover:shadow-2xl group"
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-[#704037] p-4 rounded-full hover:bg-[#704037] hover:text-white transition-all duration-300 border border-slate-200 hover:scale-110 shadow-lg group"
           aria-label="Next slide"
         >
           <svg
@@ -357,8 +356,8 @@ const Home = () => {
               onClick={() => goToSlide(index)}
               className={`w-4 h-4 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? "bg-blue-500 scale-125 shadow-lg shadow-blue-500/50"
-                  : "bg-white/50 hover:bg-white/70"
+                  ? "bg-[#704037] scale-125 shadow-lg shadow-[#704037]/40"
+                  : "bg-slate-300 hover:bg-slate-400"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -368,25 +367,25 @@ const Home = () => {
         {/* Corporate Hero Content - Bowmans Style */}
         <div className="relative z-10 text-left max-w-7xl mx-auto px-6 lg:px-12 py-10">
           <div className="max-w-3xl">
-            {/* Corporate Main Title - Large, Bold, Uppercase */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 text-white leading-[0.95] tracking-tight uppercase">
+            {/* Main Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 text-slate-800 leading-[0.95] tracking-tight uppercase">
               EXCELLENCE IN
               <br />
-              <span className="text-slate-300">LEGAL PRACTICE</span>
+              <span className="text-[#704037]">LEGAL PRACTICE</span>
             </h1>
 
-            {/* Professional Tagline */}
+            {/* Tagline */}
             <div className="mb-6 max-w-xl">
-              <p className="text-base md:text-lg lg:text-xl font-light text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl font-light text-slate-600 leading-relaxed">
                 Trusted by leading organizations for strategic legal solutions across Kenya and beyond.
               </p>
             </div>
 
-            {/* Corporate CTA Buttons */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center justify-center gap-3 bg-white/95 text-slate-900 font-semibold px-12 py-4 text-sm md:text-base uppercase tracking-[0.35em] shadow-[0_18px_45px_-15px_rgba(15,23,42,0.4)] hover:bg-white hover:shadow-[0_22px_55px_-18px_rgba(15,23,42,0.55)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-3 bg-[#704037] text-white font-semibold px-12 py-4 text-sm md:text-base uppercase tracking-[0.35em] shadow-lg hover:bg-[#5a332b] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
               >
                 Get Legal Consultation
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -394,25 +393,25 @@ const Home = () => {
 
               <Link
                 to="/about"
-                className="group inline-flex items-center justify-center gap-3 border border-white/50 text-white px-12 py-4 text-sm md:text-base uppercase tracking-[0.35em] bg-white/0 hover:bg-white/10 hover:border-white transition-all duration-300 font-semibold backdrop-blur-sm shadow-[0_18px_45px_-25px_rgba(15,23,42,0.8)] hover:shadow-[0_22px_55px_-22px_rgba(15,23,42,0.85)] hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-3 border-2 border-[#704037] text-[#704037] px-12 py-4 text-sm md:text-base uppercase tracking-[0.35em] bg-transparent hover:bg-[#704037] hover:text-white transition-all duration-300 font-semibold"
               >
                 Our Expertise
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
 
-            {/* Corporate Stats Display */}
-            <div className="mt-12 pt-6 border-t border-white/10">
+            {/* Stats Display */}
+            <div className="mt-12 pt-6 border-t border-slate-200">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {stats.map((stat, index) => (
                   <div
                     key={index}
                     className="text-left"
                   >
-                    <div className="text-5xl font-black text-white mb-3 tracking-tight">
+                    <div className="text-5xl font-black text-[#704037] mb-3 tracking-tight">
                       {stat.number}
                     </div>
-                    <div className="text-gray-400 text-base font-normal uppercase tracking-wide">
+                    <div className="text-slate-600 text-base font-normal uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </div>
@@ -424,14 +423,14 @@ const Home = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-[#704037] rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
 
-      {/* Corporate Stats Section */}
-      <section className="py-24 bg-slate-900 border-y border-slate-800">
+      {/* Stats Section */}
+      <section className="py-24 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
             {stats.map((stat, index) => (
@@ -439,29 +438,29 @@ const Home = () => {
                 key={index}
                 className="text-center"
               >
-                <div className="text-6xl font-black text-white mb-4 tracking-tight">
+                <div className="text-6xl font-black text-[#704037] mb-4 tracking-tight">
                   {stat.number}
                 </div>
-                <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
+                <div className="text-slate-600 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Corporate About Section */}
-      <section id="about" className="py-32 bg-slate-950">
+      {/* About Section */}
+      <section id="about" className="py-32 bg-[#fbfaf8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 About Our Firm
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               KAMUTI WAWERU & CO. ADVOCATES
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-4xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed font-light">
               A distinguished legal practice committed to delivering exceptional legal services 
               across a broad spectrum of practice areas. Our team of seasoned legal practitioners 
               offers unparalleled expertise, strategic advocacy, and bespoke legal solutions 
@@ -472,19 +471,19 @@ const Home = () => {
           <div className="grid lg:grid-cols-3 gap-10 mb-20">
             {[
               {
-                icon: <Target className="w-7 h-7 text-white" />,
+                icon: <Target className="w-7 h-7 text-[#704037]" />,
                 title: "OUR MISSION",
                 description:
                   "To be the premier law firm in Kenya by creating meaningful experiences for each client through innovative legal solutions.",
               },
               {
-                icon: <Eye className="w-7 h-7 text-white" />,
+                icon: <Eye className="w-7 h-7 text-[#704037]" />,
                 title: "OUR VISION",
                 description:
                   "To be recognized as Kenya's most trusted legal partner, setting industry standards for excellence and innovation.",
               },
               {
-                icon: <Clock className="w-7 h-7 text-white" />,
+                icon: <Clock className="w-7 h-7 text-[#704037]" />,
                 title: "OUR EXPERIENCE",
                 description:
                   "With 15+ years of cumulative experience in Kenya's legal system, we bring deep expertise to every case.",
@@ -492,26 +491,26 @@ const Home = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-slate-900 p-10 border-l-4 border-white hover:border-gray-400 transition-all duration-300 group"
+                className="bg-white p-10 border-l-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm hover:shadow-md transition-all duration-300 group"
               >
                 <div className="mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-black text-white mb-5 uppercase tracking-tight">
+                <h3 className="text-xl font-black text-slate-800 mb-5 uppercase tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed font-light">
+                <p className="text-slate-600 leading-relaxed font-light">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Corporate Navigation Links */}
+          {/* Navigation Links */}
           <div className="flex flex-wrap gap-4">
             <Link
               to="/about"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-8 py-4 uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
+              className="inline-flex items-center bg-[#704037] text-white font-bold px-8 py-4 uppercase tracking-wide hover:bg-[#5a332b] transition-all duration-300"
             >
               Learn More About Us
               <ArrowRight className="w-5 h-5 ml-3" />
@@ -524,7 +523,7 @@ const Home = () => {
               <Link
                 key={index}
                 to={link.to}
-                className="inline-flex items-center border-2 border-white text-white px-8 py-4 uppercase tracking-wide hover:bg-white hover:text-slate-900 transition-all duration-300 font-bold"
+                className="inline-flex items-center border-2 border-[#704037] text-[#704037] px-8 py-4 uppercase tracking-wide hover:bg-[#704037] hover:text-white transition-all duration-300 font-bold"
               >
                 {link.text}
               </Link>
@@ -533,22 +532,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Core Values Section */}
+      {/* Core Values Section */}
       <section
         id="values"
-        className="py-32 bg-slate-900"
+        className="py-32 bg-white border-y border-slate-200"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 Our Foundation
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               CORE VALUES
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               The principles that guide our practice and define our commitment to excellence
             </p>
           </div>
@@ -557,15 +556,15 @@ const Home = () => {
             {coreValues.map((value, index) => (
               <div
                 key={index}
-                className="bg-slate-950 p-8 border-t-4 border-white hover:border-gray-400 transition-all duration-300 group"
+                className="bg-[#fbfaf8] p-8 border-t-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300 group"
               >
                 <div className="mb-8">
-                  {React.cloneElement(value.icon, { className: "w-10 h-10 text-white" })}
+                  {React.cloneElement(value.icon, { className: "w-10 h-10 text-[#704037]" })}
                 </div>
-                <h3 className="text-lg font-black mb-4 text-white uppercase tracking-tight">
+                <h3 className="text-lg font-black mb-4 text-slate-800 uppercase tracking-tight">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm font-light">
+                <p className="text-slate-600 leading-relaxed text-sm font-light">
                   {value.description}
                 </p>
               </div>
@@ -574,19 +573,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Practice Areas Section */}
-      <section id="practice-areas" className="py-32 bg-slate-950">
+      {/* Practice Areas Section */}
+      <section id="practice-areas" className="py-32 bg-[#fbfaf8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 What We Do
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               PRACTICE AREAS
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               Comprehensive expert services across four core practice areas
             </p>
           </div>
@@ -595,27 +594,27 @@ const Home = () => {
             {practiceAreas.map((area, index) => (
               <div
                 key={area.id}
-                className="group bg-slate-900 border-l-4 border-white hover:border-gray-400 transition-all duration-300 p-10"
+                className="group bg-white border-l-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300 p-10"
               >
                 <div className="mb-8">
                   {React.cloneElement(area.icon, {
-                    className: "w-10 h-10 text-white",
+                    className: "w-10 h-10 text-[#704037]",
                   })}
                 </div>
                 <div className="mb-6">
-                  <h3 className="text-2xl font-black mb-3 text-white uppercase tracking-tight">
+                  <h3 className="text-2xl font-black mb-3 text-slate-800 uppercase tracking-tight">
                     {area.title}
                   </h3>
-                  <span className="text-xs text-gray-400 font-semibold uppercase tracking-widest">
+                  <span className="text-xs text-[#704037] font-semibold uppercase tracking-widest">
                     {area.stats}
                   </span>
                 </div>
-                <p className="text-gray-400 mb-8 leading-relaxed font-light">
+                <p className="text-slate-600 mb-8 leading-relaxed font-light">
                   {area.description}
                 </p>
                 <Link
                   to={area.link}
-                  className="inline-flex items-center text-white font-bold uppercase tracking-wide hover:text-gray-400 transition-colors gap-3 text-sm"
+                  className="inline-flex items-center text-[#704037] font-bold uppercase tracking-wide hover:text-[#5a332b] transition-colors gap-3 text-sm"
                 >
                   Learn More
                   <ArrowRight className="w-5 h-5" />
@@ -627,7 +626,7 @@ const Home = () => {
           <div className="mt-16">
             <Link
               to="/practice-areas"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-8 py-4 uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
+              className="inline-flex items-center bg-[#704037] text-white font-bold px-8 py-4 uppercase tracking-wide hover:bg-[#5a332b] transition-all duration-300"
             >
               View All Practice Areas
               <ArrowRight className="w-5 h-5 ml-3" />
@@ -636,22 +635,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Our People Section */}
+      {/* Our People Section */}
       <section
         id="our-people"
-        className="py-32 bg-slate-900"
+        className="py-32 bg-white border-y border-slate-200"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 Our Team
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               OUR PEOPLE
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               Experienced professionals committed to delivering excellence in legal services
             </p>
           </div>
@@ -660,7 +659,7 @@ const Home = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="group bg-slate-950 overflow-hidden border-b-4 border-white hover:border-gray-400 transition-all duration-300"
+                className="group bg-[#fbfaf8] overflow-hidden border-b-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300"
               >
                 <div className="relative overflow-hidden h-96">
                   <img
@@ -668,16 +667,16 @@ const Home = () => {
                     alt={member.name}
                     className="w-full h-full team-image grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-black mb-2 text-white uppercase tracking-tight">
+                  <h3 className="text-2xl font-black mb-2 text-slate-800 uppercase tracking-tight">
                     {member.name}
                   </h3>
-                  <p className="text-gray-400 font-medium mb-4 text-sm uppercase tracking-widest">
+                  <p className="text-[#704037] font-medium mb-4 text-sm uppercase tracking-widest">
                     {member.position}
                   </p>
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-widest">
+                  <p className="text-xs text-slate-500 font-semibold uppercase tracking-widest">
                     {member.experience}
                   </p>
                 </div>
@@ -688,7 +687,7 @@ const Home = () => {
           <div className="mt-16">
             <Link
               to="/our-people"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-8 py-4 uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
+              className="inline-flex items-center bg-[#704037] text-white font-bold px-8 py-4 uppercase tracking-wide hover:bg-[#5a332b] transition-all duration-300"
             >
               Meet Our Full Team
               <ArrowRight className="w-5 h-5 ml-3" />
@@ -697,19 +696,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Client Insights Section */}
-      <section id="insights" className="py-32 bg-slate-950">
+      {/* Client Insights Section */}
+      <section id="insights" className="py-32 bg-[#fbfaf8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 Trusted Partnerships
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               OUR CLIENTS
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               Delivering excellence to leading organizations across diverse industries
             </p>
           </div>
@@ -718,10 +717,10 @@ const Home = () => {
             {recentInsights.map((insight, index) => (
               <div
                 key={index}
-                className="group bg-slate-900 p-10 border-t-4 border-white hover:border-gray-400 transition-all duration-300"
+                className="group bg-white p-10 border-t-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300"
               >
                 <div className="flex flex-col items-center mb-8">
-                  <div className="w-32 h-32 bg-white p-6 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-slate-50 p-6 flex items-center justify-center">
                     <img
                       src={insight.image}
                       alt={insight.title}
@@ -730,13 +729,13 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-black text-white mb-3 uppercase tracking-tight">
+                  <h3 className="text-xl font-black text-slate-800 mb-3 uppercase tracking-tight">
                     {insight.title}
                   </h3>
-                  <span className="text-xs text-gray-400 font-semibold uppercase tracking-widest inline-block mb-4">
+                  <span className="text-xs text-[#704037] font-semibold uppercase tracking-widest inline-block mb-4">
                     {insight.category}
                   </span>
-                  <p className="text-gray-400 leading-relaxed text-sm font-light">
+                  <p className="text-slate-600 leading-relaxed text-sm font-light">
                     {insight.description}
                   </p>
                 </div>
@@ -747,7 +746,7 @@ const Home = () => {
           <div className="mt-16">
             <Link
               to="/insights"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-8 py-4 uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
+              className="inline-flex items-center bg-[#704037] text-white font-bold px-8 py-4 uppercase tracking-wide hover:bg-[#5a332b] transition-all duration-300"
             >
               View All Clients
               <ArrowRight className="w-5 h-5 ml-3" />
@@ -756,19 +755,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Testimonials Section */}
-      <section className="py-32 bg-slate-900">
+      {/* Testimonials Section */}
+      <section className="py-32 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 Client Success Stories
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               TESTIMONIALS
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               Trusted by clients across Kenya for our dedication and results
             </p>
           </div>
@@ -777,24 +776,24 @@ const Home = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="group bg-slate-950 p-10 border-l-4 border-white hover:border-gray-400 transition-all duration-300"
+                className="group bg-[#fbfaf8] p-10 border-l-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 text-white fill-white"
+                      className="w-5 h-5 text-[#704037] fill-[#704037]"
                     />
                   ))}
                 </div>
                 <div className="mb-8">
-                  <p className="text-lg text-gray-300 leading-relaxed font-light">
+                  <p className="text-lg text-slate-600 leading-relaxed font-light">
                     "{testimonial.content}"
                   </p>
                 </div>
-                <div className="border-t border-gray-800 pt-6">
-                  <p className="font-black text-lg text-white uppercase tracking-tight">{testimonial.client}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-widest mt-1">{testimonial.position}</p>
+                <div className="border-t border-slate-200 pt-6">
+                  <p className="font-black text-lg text-slate-800 uppercase tracking-tight">{testimonial.client}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest mt-1">{testimonial.position}</p>
                 </div>
               </div>
             ))}
@@ -802,19 +801,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Corporate Contact Section */}
-      <section id="contact" className="py-32 bg-slate-950">
+      {/* Contact Section */}
+      <section id="contact" className="py-32 bg-[#fbfaf8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-20">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#704037] font-semibold text-xs uppercase tracking-widest">
                 Get In Touch
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-800 mb-8 uppercase tracking-tight leading-tight">
               CONTACT US
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light">
               Ready to discuss your legal needs? We're here to help
             </p>
           </div>
@@ -822,7 +821,7 @@ const Home = () => {
           <div className="grid lg:grid-cols-3 gap-10 mb-20">
             {[
               {
-                icon: <MapPin className="w-7 h-7 text-white" />,
+                icon: <MapPin className="w-7 h-7 text-[#704037]" />,
                 title: "VISIT US",
                 content: [
                   "Nineth Planet Apartments",
@@ -831,28 +830,28 @@ const Home = () => {
                 ],
               },
               {
-                icon: <Phone className="w-7 h-7 text-white" />,
+                icon: <Phone className="w-7 h-7 text-[#704037]" />,
                 title: "CALL US",
                 content: ["020 20202 8640", "0792 280 484"],
               },
               {
-                icon: <Mail className="w-7 h-7 text-white" />,
+                icon: <Mail className="w-7 h-7 text-[#704037]" />,
                 title: "EMAIL US",
                 content: ["info@kwco.legal", "www.kwco.legal"],
               },
             ].map((contact, index) => (
               <div
                 key={index}
-                className="bg-slate-900 p-10 border-t-4 border-white hover:border-gray-400 transition-all duration-300"
+                className="bg-white p-10 border-t-4 border-[#704037] hover:border-[#8b5a4a] shadow-sm transition-all duration-300"
               >
                 <div className="mb-6">
                   {contact.icon}
                 </div>
-                <h3 className="text-lg font-black mb-6 text-white uppercase tracking-tight">
+                <h3 className="text-lg font-black mb-6 text-slate-800 uppercase tracking-tight">
                   {contact.title}
                 </h3>
                 {contact.content.map((line, lineIndex) => (
-                  <p key={lineIndex} className="text-gray-400 mb-2 text-sm font-light">
+                  <p key={lineIndex} className="text-slate-600 mb-2 text-sm font-light">
                     {line}
                   </p>
                 ))}
@@ -863,43 +862,43 @@ const Home = () => {
           <div className="mb-20">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-10 py-5 uppercase tracking-wide hover:bg-slate-100 transition-all duration-300 text-base"
+              className="inline-flex items-center bg-[#704037] text-white font-bold px-10 py-5 uppercase tracking-wide hover:bg-[#5a332b] transition-all duration-300 text-base"
             >
               Schedule a Consultation
               <ArrowRight className="w-5 h-5 ml-3" />
             </Link>
           </div>
 
-          <div className="bg-slate-900 p-12 border-l-4 border-white">
+          <div className="bg-white p-12 border-l-4 border-[#704037] shadow-sm">
             <div className="mb-6">
-              <Phone className="w-10 h-10 text-white" />
+              <Phone className="w-10 h-10 text-[#704037]" />
             </div>
-            <h3 className="text-2xl font-black mb-4 text-white uppercase tracking-tight">
+            <h3 className="text-2xl font-black mb-4 text-slate-800 uppercase tracking-tight">
               EMERGENCY LEGAL SERVICES
             </h3>
-            <p className="text-gray-400 mb-6 text-sm font-light">
+            <p className="text-slate-600 mb-6 text-sm font-light">
               For urgent legal matters outside office hours
             </p>
-            <p className="text-4xl font-black text-white tracking-tight">+254 725 766457</p>
+            <p className="text-4xl font-black text-[#704037] tracking-tight">+254 725 766457</p>
           </div>
         </div>
       </section>
 
-      {/* Corporate Final CTA Section */}
-      <section className="py-32 bg-slate-900 text-white border-t border-slate-800">
+      {/* Final CTA Section */}
+      <section className="py-32 bg-[#704037] text-white border-t border-[#5a332b]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-12">
             <div className="mb-8">
-              <span className="text-gray-400 font-semibold text-xs uppercase tracking-widest">
+              <span className="text-white/80 font-semibold text-xs uppercase tracking-widest">
                 Start Your Journey
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-10 text-white leading-[0.95] tracking-tight uppercase">
               READY TO WORK WITH
               <br />
-              <span className="text-slate-300">EXCELLENCE?</span>
+              <span className="text-white/90">EXCELLENCE?</span>
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl leading-relaxed font-light mb-12">
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light mb-12">
               Let our experienced team of legal professionals guide you through your legal matters. 
               Experience the difference that dedicated, professional legal services can make for your case.
             </p>
@@ -907,14 +906,14 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-5">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-white text-slate-900 font-bold px-10 py-5 text-base uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
+              className="inline-flex items-center bg-white text-[#704037] font-bold px-10 py-5 text-base uppercase tracking-wide hover:bg-slate-100 transition-all duration-300"
             >
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-3" />
             </Link>
             <Link
               to="/consultation"
-              className="inline-flex items-center border-2 border-white text-white px-10 py-5 text-base uppercase tracking-wide hover:bg-white hover:text-slate-900 transition-all duration-300 font-bold"
+              className="inline-flex items-center border-2 border-white text-white px-10 py-5 text-base uppercase tracking-wide hover:bg-white hover:text-[#704037] transition-all duration-300 font-bold"
             >
               Book a Consultation
               <Calendar className="w-5 h-5 ml-3" />

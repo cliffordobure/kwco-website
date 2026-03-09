@@ -253,9 +253,9 @@ body,
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
 
-/* Gradient Text */
+/* Gradient Text - logo-inspired */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #704037, #8b5a4a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -272,16 +272,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: #704037;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #5a332b;
 }
 
 /* Loading Animation */
@@ -291,9 +291,9 @@ html {
   animation: shimmer 1.5s infinite;
 }
 
-/* Professional Button Styles */
+/* Professional Button Styles - logo brown */
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #704037, #5a332b);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -321,7 +321,7 @@ html {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(112, 64, 55, 0.35);
 }
 
 /* Card Hover Effects */
@@ -339,8 +339,8 @@ html {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.1),
-    rgba(29, 78, 216, 0.1)
+    rgba(112, 64, 55, 0.06),
+    rgba(112, 64, 55, 0.04)
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -353,13 +353,13 @@ html {
 
 /* Text Selection */
 ::selection {
-  background: #3b82f6;
+  background: #704037;
   color: white;
 }
 
 /* Focus Styles */
 .focus-ring:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #704037;
   outline-offset: 2px;
 }
 
@@ -402,13 +402,13 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* Enhanced Text Rendering */
+/* Enhanced Text Rendering - light theme */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: #fbfaf8;
+  color: #1e293b;
 }
 
 /* Corporate Typography */
@@ -439,7 +439,7 @@ h2 {
 /* Professional Focus States */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #704037;
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -468,7 +468,7 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none !important;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(112, 64, 55, 0.15) !important;
   background-color: white !important;
   color: #111827 !important;
   z-index: 10 !important;

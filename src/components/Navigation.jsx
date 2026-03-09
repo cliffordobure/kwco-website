@@ -101,8 +101,8 @@ const Navigation = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-slate-950/98 backdrop-blur-md shadow-2xl border-b border-slate-800"
-          : "bg-slate-950/95 backdrop-blur-sm shadow-xl border-b border-slate-900"
+          ? "bg-white/98 backdrop-blur-md shadow-lg border-b border-slate-200"
+          : "bg-white/95 backdrop-blur-sm shadow-md border-b border-slate-100"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
@@ -133,42 +133,42 @@ const Navigation = () => {
               <div key={index} className="relative group">
                 {item.dropdown ? (
                   <div
-                    className="flex items-center cursor-pointer py-2 text-gray-300 hover:text-white transition-all duration-300 relative"
+                    className="flex items-center cursor-pointer py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 relative"
                     onMouseEnter={() => setActiveDropdown(index)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     {item.isScrollable && isHomePage ? (
                       <button
                         onClick={(e) => handleNavClick(e, item)}
-                        className="flex items-center font-medium hover:text-white transition-all duration-300 uppercase text-xs tracking-widest"
+                        className="flex items-center font-medium hover:text-[#704037] transition-all duration-300 uppercase text-xs tracking-widest"
                       >
                         <span className="relative">
                           {item.label}
-                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                         </span>
                         <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
                       </button>
                     ) : (
                       <Link
                         to={item.href}
-                        className="flex items-center font-medium hover:text-white transition-all duration-300 uppercase text-xs tracking-widest"
+                        className="flex items-center font-medium hover:text-[#704037] transition-all duration-300 uppercase text-xs tracking-widest"
                       >
                         <span className="relative">
                           {item.label}
-                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                         </span>
                         <ChevronDown className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" />
                       </Link>
                     )}
                     {activeDropdown === index && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-slate-900/98 backdrop-blur-md shadow-2xl border border-slate-800 overflow-hidden animate-fade-in-up">
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white/98 backdrop-blur-md shadow-xl border border-slate-200 overflow-hidden animate-fade-in-up">
                         <div className="p-2">
                           {item.dropdown.map((dropItem, dropIndex) =>
                             dropItem.isScrollable && isHomePage ? (
                               <button
                                 key={dropIndex}
                                 onClick={(e) => handleNavClick(e, dropItem)}
-                                className="w-full text-left px-4 py-3 text-gray-300 hover:bg-slate-800 hover:text-white transition-all duration-300 group/item uppercase text-xs tracking-widest font-medium"
+                                className="w-full text-left px-4 py-3 text-slate-600 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 group/item uppercase text-xs tracking-widest font-medium"
                               >
                                 <div className="flex items-center justify-between">
                                   <span>
@@ -181,7 +181,7 @@ const Navigation = () => {
                               <Link
                                 key={dropIndex}
                                 to={dropItem.href}
-                                className="block px-4 py-3 text-gray-300 hover:bg-slate-800 hover:text-white transition-all duration-300 group/item uppercase text-xs tracking-widest font-medium"
+                                className="block px-4 py-3 text-slate-600 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 group/item uppercase text-xs tracking-widest font-medium"
                               >
                                 <div className="flex items-center justify-between">
                                   <span>
@@ -201,31 +201,31 @@ const Navigation = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-2 text-gray-300 hover:text-white transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
+                    className="py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                     </span>
                   </a>
                 ) : item.isScrollable && isHomePage ? (
                   <button
                     onClick={(e) => handleNavClick(e, item)}
-                    className="py-2 text-gray-300 hover:text-white transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
+                    className="py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                     </span>
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className="py-2 text-gray-300 hover:text-white transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
+                    className="py-2 text-slate-700 hover:text-[#704037] transition-all duration-300 font-medium relative group uppercase text-xs tracking-widest"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#704037] transition-all duration-300 group-hover:w-full"></span>
                     </span>
                   </Link>
                 )}
@@ -233,27 +233,27 @@ const Navigation = () => {
             ))}
             <Link
               to="/consultation"
-              className="bg-white text-slate-900 px-8 py-3 hover:bg-slate-100 transition-all duration-300 font-bold flex items-center group uppercase text-xs tracking-widest"
+              className="bg-[#704037] text-white px-8 py-3 hover:bg-[#5a332b] transition-all duration-300 font-bold flex items-center group uppercase text-xs tracking-widest"
             >
               Get Consultation
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
 
-          {/* Corporate Mobile Menu Button */}
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-slate-800 transition-all duration-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-slate-100 text-slate-700 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <div className="relative w-6 h-6">
-              <span
+                <span
                 className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
                   isMobileMenuOpen
                     ? "rotate-180 opacity-0"
                     : "rotate-0 opacity-100"
                 }`}
               >
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className="w-6 h-6 text-slate-800" />
               </span>
               <span
                 className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
@@ -262,7 +262,7 @@ const Navigation = () => {
                     : "rotate-180 opacity-0"
                 }`}
               >
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 text-slate-800" />
               </span>
             </div>
           </button>
@@ -276,7 +276,7 @@ const Navigation = () => {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="bg-slate-900/98 backdrop-blur-md border-t border-slate-800 shadow-2xl max-h-[80vh] overflow-y-auto">
+          <div className="bg-white/98 backdrop-blur-md border-t border-slate-200 shadow-xl max-h-[80vh] overflow-y-auto">
             <div className="py-4 space-y-2">
               {navItems.map((item, index) => (
                 <div key={index} className="px-4">
@@ -285,7 +285,7 @@ const Navigation = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block px-4 py-4 text-gray-300 hover:bg-slate-800 hover:text-white transition-all duration-300 font-medium uppercase text-xs tracking-widest"
+                      className="block px-4 py-4 text-slate-600 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 font-medium uppercase text-xs tracking-widest"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -293,14 +293,14 @@ const Navigation = () => {
                   ) : item.isScrollable && isHomePage ? (
                     <button
                       onClick={(e) => handleNavClick(e, item)}
-                      className="w-full text-left px-4 py-4 text-gray-300 hover:bg-slate-800 hover:text-white transition-all duration-300 font-medium uppercase text-xs tracking-widest"
+                      className="w-full text-left px-4 py-4 text-slate-600 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 font-medium uppercase text-xs tracking-widest"
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
                       to={item.href}
-                      className="block px-4 py-4 text-gray-300 hover:bg-slate-800 hover:text-white transition-all duration-300 font-medium uppercase text-xs tracking-widest"
+                      className="block px-4 py-4 text-slate-600 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 font-medium uppercase text-xs tracking-widest"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -313,7 +313,7 @@ const Navigation = () => {
                           <button
                             key={dropIndex}
                             onClick={(e) => handleNavClick(e, dropItem)}
-                            className="w-full text-left px-4 py-3 text-gray-400 hover:bg-slate-800 hover:text-white transition-all duration-300 flex items-center justify-between group uppercase text-xs tracking-widest"
+                            className="w-full text-left px-4 py-3 text-slate-500 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 flex items-center justify-between group uppercase text-xs tracking-widest"
                           >
                             <span>{dropItem.label}</span>
                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
@@ -322,7 +322,7 @@ const Navigation = () => {
                           <Link
                             key={dropIndex}
                             to={dropItem.href}
-                            className="block px-4 py-3 text-gray-400 hover:bg-slate-800 hover:text-white transition-all duration-300 flex items-center justify-between group uppercase text-xs tracking-widest"
+                            className="block px-4 py-3 text-slate-500 hover:bg-[#fbfaf8] hover:text-[#704037] transition-all duration-300 flex items-center justify-between group uppercase text-xs tracking-widest"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             <span>{dropItem.label}</span>
@@ -337,7 +337,7 @@ const Navigation = () => {
               <div className="px-4 pt-4">
                 <Link
                   to="/consultation"
-                  className="block w-full bg-white text-slate-900 px-6 py-4 hover:bg-slate-100 transition-all duration-300 shadow-lg text-center font-bold flex items-center justify-center group uppercase text-xs tracking-widest"
+                  className="block w-full bg-[#704037] text-white px-6 py-4 hover:bg-[#5a332b] transition-all duration-300 shadow-lg text-center font-bold flex items-center justify-center group uppercase text-xs tracking-widest"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Consultation

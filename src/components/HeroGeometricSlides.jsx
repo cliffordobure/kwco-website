@@ -2,9 +2,13 @@ import React from "react";
 
 /**
  * Six geometric background patterns for the hero slider.
- * Inspired by 3D faceted/origami-style geometry with depth and structure.
- * Colors use slate/blue tones to match the site; overlay keeps text readable.
+ * Light theme: cream/white base with logo brown (#704037) and soft blue accents.
  */
+const BG_LIGHT = "#fbfaf8";
+const ACCENT = "#704037";
+const ACCENT_LIGHT = "#8b5a4a";
+const MUTED = "#94a3b8";
+const MUTED_DARK = "#64748b";
 const SLIDE_COUNT = 6;
 
 export function getGeometricSlideCount() {
@@ -42,16 +46,16 @@ function RhombusGrid() {
         <g key={`${r}-${c}`} transform={`translate(${x}, ${y})`}>
           <defs>
             <linearGradient id={`rg-${r}-${c}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#475569" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#334155" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#1e293b" stopOpacity="0.9" />
+              <stop offset="0%" stopColor={ACCENT_LIGHT} stopOpacity="0.25" />
+              <stop offset="50%" stopColor={ACCENT} stopOpacity="0.35" />
+              <stop offset="100%" stopColor={MUTED_DARK} stopOpacity="0.2" />
             </linearGradient>
           </defs>
           <polygon
             points={`${size/2},0 ${size},${size/2} ${size/2},${size} 0,${size/2}`}
             fill={`url(#rg-${r}-${c})`}
-            stroke="#64748b"
-            strokeOpacity="0.25"
+            stroke={MUTED}
+            strokeOpacity="0.3"
             strokeWidth="0.5"
           />
         </g>
@@ -60,7 +64,7 @@ function RhombusGrid() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-      <rect width="100%" height="100%" fill="#0f172a" />
+      <rect width="100%" height="100%" fill={BG_LIGHT} />
       <g transform="translate(-40, -20) scale(1.1)">{diamonds}</g>
     </svg>
   );
@@ -84,8 +88,8 @@ function HexagonHoneycomb() {
           key={`${row}-${col}`}
           points={points}
           fill="none"
-          stroke="#475569"
-          strokeOpacity={0.35 + (row + col) % 3 * 0.1}
+          stroke={ACCENT}
+          strokeOpacity={0.2 + (row + col) % 3 * 0.08}
           strokeWidth="1"
         />
       );
@@ -93,7 +97,7 @@ function HexagonHoneycomb() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-      <rect width="100%" height="100%" fill="#0f172a" />
+      <rect width="100%" height="100%" fill={BG_LIGHT} />
       <g transform="translate(-30, -20) scale(1.15)">{hexagons}</g>
     </svg>
   );
@@ -116,10 +120,10 @@ function RadiatingDiamonds() {
         <g key={`${ring}-${i}`} transform={`translate(${x}, ${y}) rotate(${angle * 180 / Math.PI})`}>
           <polygon
             points={`${size},0 ${size*2},${size} ${size},${size*2} 0,${size}`}
-            fill="#334155"
-            fillOpacity={0.4 - ring * 0.02}
-            stroke="#475569"
-            strokeOpacity="0.3"
+            fill={ACCENT}
+            fillOpacity={0.15 - ring * 0.008}
+            stroke={MUTED}
+            strokeOpacity="0.25"
             strokeWidth="0.5"
           />
         </g>
@@ -128,7 +132,7 @@ function RadiatingDiamonds() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100">
-      <rect width="100" height="100" fill="#0f172a" />
+      <rect width="100" height="100" fill={BG_LIGHT} />
       <g>{rings}</g>
     </svg>
   );
@@ -146,9 +150,9 @@ function AngledChevrons() {
       <polygon
         key={i}
         points={`${x},0 ${x + width},0 ${x + width * 1.4},${height} ${x + width * 0.4},${height}`}
-        fill="#334155"
-        fillOpacity={opacity}
-        stroke="#475569"
+        fill={ACCENT}
+        fillOpacity={opacity * 0.6}
+        stroke={MUTED}
         strokeOpacity="0.2"
         strokeWidth="0.5"
       />
@@ -156,7 +160,7 @@ function AngledChevrons() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400">
-      <rect width="1200" height="400" fill="#0f172a" />
+      <rect width="1200" height="400" fill={BG_LIGHT} />
       <g transform="translate(-80, 0) scale(1.2)">{stripes}</g>
     </svg>
   );
@@ -170,27 +174,27 @@ function FoldedFacets() {
     for (let col = 0; col < 20; col++) {
       const x = col * step + (row % 2) * (step / 2);
       const y = row * step * 0.6;
-      const light = (row + col) % 2 === 0 ? "#475569" : "#334155";
-      const dark = (row + col) % 2 === 0 ? "#334155" : "#1e293b";
+      const light = (row + col) % 2 === 0 ? ACCENT_LIGHT : MUTED;
+      const dark = (row + col) % 2 === 0 ? ACCENT : MUTED_DARK;
       facets.push(
         <g key={`${row}-${col}`}>
           <defs>
             <linearGradient id={`ff-${row}-${col}-a`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={light} stopOpacity="0.7" />
-              <stop offset="100%" stopColor={dark} stopOpacity="0.8" />
+              <stop offset="0%" stopColor={light} stopOpacity="0.35" />
+              <stop offset="100%" stopColor={dark} stopOpacity="0.25" />
             </linearGradient>
           </defs>
           <polygon
             points={`${x},${y} ${x + step},${y} ${x + step/2},${y + step*0.5}`}
             fill={`url(#ff-${row}-${col}-a)`}
-            stroke="#64748b"
+            stroke={MUTED}
             strokeOpacity="0.2"
           />
           <polygon
             points={`${x},${y} ${x + step/2},${y + step*0.5} ${x - step/2},${y + step*0.5}`}
             fill={dark}
-            fillOpacity="0.6"
-            stroke="#64748b"
+            fillOpacity="0.2"
+            stroke={MUTED}
             strokeOpacity="0.2"
           />
         </g>
@@ -199,7 +203,7 @@ function FoldedFacets() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-      <rect width="100%" height="100%" fill="#0f172a" />
+      <rect width="100%" height="100%" fill={BG_LIGHT} />
       <g transform="translate(-30, -40) scale(1.15)">{facets}</g>
     </svg>
   );
@@ -233,9 +237,9 @@ function LowPolyAngles() {
           <polygon
             key={`${r}-${c}-${i}`}
             points={pts}
-            fill="#334155"
-            fillOpacity={t.opacity * (0.7 + (r + c) % 3 * 0.1)}
-            stroke="#475569"
+            fill={ACCENT}
+            fillOpacity={t.opacity * (0.4 + (r + c) % 3 * 0.05)}
+            stroke={MUTED}
             strokeOpacity="0.15"
             strokeWidth="0.5"
           />
@@ -245,7 +249,7 @@ function LowPolyAngles() {
   }
   return (
     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-      <rect width="100%" height="100%" fill="#0f172a" />
+      <rect width="100%" height="100%" fill={BG_LIGHT} />
       <g transform="translate(-50, -30) scale(1.2)">{tiles}</g>
     </svg>
   );

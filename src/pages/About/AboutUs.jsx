@@ -238,7 +238,7 @@ const AboutUs = () => {
       </section>
 
       {/* Enhanced Stats Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 to-slate-900 text-white">
+      <section className="py-24 bg-[#704037] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold mb-6">
@@ -311,7 +311,7 @@ const AboutUs = () => {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
+      <section className="py-24 bg-white border-y border-slate-200 text-slate-800">
         <div className="max-w-5xl mx-auto text-center px-4">
           <div className="animate-on-scroll opacity-0 animate-fade-in-up">
             <h2 className="text-5xl font-bold mb-8">

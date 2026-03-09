@@ -6,7 +6,7 @@ import logo from "./../assets/sklogo.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-slate-950 text-white py-16">
+    <footer className="bg-[#704037] text-white py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-4 gap-12 mb-12">
           <div>
@@ -17,7 +17,7 @@ const Footer = () => {
                 className="w-40 h-auto mb-4"
               />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white/85 text-sm leading-relaxed">
               A distinguished legal practice in Nairobi, Kenya, committed to delivering 
               excellence in legal services across diverse practice areas.
             </p>
@@ -29,7 +29,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Home
                 </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   About Us
                 </Link>
@@ -45,7 +45,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/practice-areas"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Practice Areas
                 </Link>
@@ -53,7 +53,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/our-people"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Our People
                 </Link>
@@ -61,7 +61,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/insights"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Client Insights
                 </Link>
@@ -69,7 +69,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Contact
                 </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/practice-areas/litigation"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Litigation
                 </Link>
@@ -91,7 +91,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/practice-areas/credit-collection"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Credit Collection
                 </Link>
@@ -99,7 +99,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/practice-areas/conveyancing"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Conveyancing
                 </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/practice-areas/dispute-resolution"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
                 >
                   Dispute Resolution
                 </Link>
@@ -117,39 +117,39 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold mb-6 text-white">Connect With Us</h4>
-            <p className="text-gray-400 mb-6 text-sm">Follow us on social media</p>
+            <p className="text-white/85 mb-6 text-sm">Follow us on social media</p>
             <div className="flex space-x-4">
               <a
                 href="https://facebook.com/kwcoadvocates"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-xl hover:bg-blue-600 transition-all duration-300 group"
+                className="bg-white/15 p-3 rounded-xl hover:bg-white/25 transition-all duration-300 group"
               >
-                <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                <Facebook className="w-5 h-5 text-white group-hover:text-white" />
               </a>
               <a
                 href="https://linkedin.com/company/kamuti-waweru-company-advocates"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-xl hover:bg-blue-600 transition-all duration-300 group"
+                className="bg-white/15 p-3 rounded-xl hover:bg-white/25 transition-all duration-300 group"
               >
-                <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                <Linkedin className="w-5 h-5 text-white group-hover:text-white" />
               </a>
               <a
                 href="https://youtube.com/@kwco-advocates?si=vD6JqIsuMEBnVBAA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-xl hover:bg-blue-600 transition-all duration-300 group"
+                className="bg-white/15 p-3 rounded-xl hover:bg-white/25 transition-all duration-300 group"
               >
-                <Youtube className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                <Youtube className="w-5 h-5 text-white group-hover:text-white" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-white/20 pt-8">
           <div className="text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-white/80 text-sm">
               © {new Date().getFullYear()} KWCO - Kamuti Waweru & Co. Advocates. All rights reserved.
             </p>
           </div>
