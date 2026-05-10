@@ -33,6 +33,7 @@ import bank from "./../assets/client/kingdom bank.png";
 import Melvin from "./../assets/team/Melvin.jpg";
 import Jackline from "./../assets/newImages/jackylanding.jpg";
 import Seif from "./../assets/newImages/seifbest.jpg";
+import Nicole from "./../assets/team/Nicole_wambui_githiri.jpeg";
 import bidico from "./../assets/client/bidco_logo.png";
 import hashi from "./../assets/headers/hashi.png";
 import Skbig from "./../assets/newImages/skbest4.jpg";
@@ -270,6 +271,14 @@ const Home = () => {
       achievements: [
         "500+ Transactions"
       ],
+    },
+    {
+      name: "Nicole Wambui Githiri",
+      position: "Practice Lead - Conveyancing, Real Estate and Commercial Practice",
+      expertise: ["Commercial Law", "Conveyancing", "Civil & Commercial Litigation"],
+      experience: "Several Years",
+      image: Nicole,
+      achievements: ["Conveyancing and Commercial Practice Leadership"],
     },
   ];
 

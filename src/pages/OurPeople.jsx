@@ -22,6 +22,7 @@ import seif from "./../assets/newImages/seifbest.jpg";
 // import alexender from "./../assets/newImages/alex.jpg";
 import eddie from "./../assets/newImages/eddietbest.jpg";
 import jackline from "./../assets/newImages/jackylanding.jpg";
+import nicole from "./../assets/team/Nicole_wambui_githiri.jpeg";
 
 const OurPeople = () => {
   // Intersection Observer for animations
@@ -56,6 +57,26 @@ const OurPeople = () => {
         "500+ Cases Handled",
         "95% Success Rate",
         "15+ Years Leadership",
+      ],
+    },
+    {
+      name: "Nicole Wambui Githiri",
+      position: "Practice Lead - Conveyancing, Real Estate and Commercial Practice",
+      image: nicole,
+      expertise: [
+        "Practice Lead - Conveyancing, Real Estate and Commercial Practice",
+        "Commercial Law & Conveyancing Specialist",
+        "Civil and Commercial Litigation",
+      ],
+      experience: "Several years",
+      bio: "Nicole Wambui Githiri is the Practice Lead - Conveyancing, Real Estate and Commercial Practice at Kamuti Waweru Advocates (KWCO Advocates). With several years of focused experience as an Advocate, she has built a strong reputation for excellence in commercial law, conveyancing, and civil/commercial litigation, delivering strategic advice and seamless transaction support to clients.",
+      email: "wambui@kwco.legal",
+      phone: "+254721368518",
+      linkedin: "https://www.linkedin.com/in/nicole-githiri-87b60762/",
+      achievements: [
+        "Streamlined in-house processes for reports, agreements, meetings and staff cohesion",
+        "Managed lease registrations, property transfers, company formations and registry transactions",
+        "Trained and mentored interns and junior advocates",
       ],
     },
   ];
